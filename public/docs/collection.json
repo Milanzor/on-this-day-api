@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "e6740ac5-7d85-4f51-9867-e25354d5f7ec",
+        "_postman_id": "169265b6-b83b-4f97-844a-ffcadd40cb9e",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,13 +20,13 @@
             "description": "",
             "item": [
                 {
-                    "name": "GET api\/user",
+                    "name": "GET api\/v1\/events\/today",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/user",
+                            "path": "api\/v1\/events\/today",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/user"
+                            "raw": "{{baseUrl}}\/api\/v1\/events\/today"
                         },
                         "method": "GET",
                         "header": [
@@ -57,12 +57,20 @@
                                     "value": "application\/json"
                                 },
                                 {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
                                     "key": "access-control-allow-origin",
                                     "value": "*"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 200,
+                            "body": "{\"data\":[]}",
                             "name": ""
                         }
                     ]

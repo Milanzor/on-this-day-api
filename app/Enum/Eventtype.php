@@ -2,7 +2,8 @@
 
 namespace App\Enum;
 
-enum Eventtype: string {
+enum Eventtype: string
+{
 
     case Birthday = 'birthday';
     case Death = 'death';

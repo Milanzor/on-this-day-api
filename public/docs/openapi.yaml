@@ -7,25 +7,25 @@ servers:
   -
     url: 'http://localhost'
 paths:
-  /api/user:
+  /api/v1/events/today:
     get:
       summary: ''
-      operationId: getApiUser
+      operationId: getApiV1EventsToday
       description: ''
       parameters: []
       responses:
-        401:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  data: []
                 properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
+                  data:
+                    type: array
+                    example: []
       tags:
         - Endpoints
       security: []

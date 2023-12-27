@@ -4,22 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\EventResource;
 use App\Models\Event;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class EventController extends Controller {
+class EventController extends Controller
+{
 
-    public function today() {
+    public function today(): AnonymousResourceCollection
+    {
+
+        $now = now();
+
         return EventResource::collection(
-            Event::query()->where('eventday', now()->day)
-                ->where('eventmonth', now()->month)
+            Event::query()->where('eventday', $now->day)
+                ->where('eventmonth', $now->month)
                 ->orderBy('eventyear')
                 ->get()
-        );
-    }
-
-    public function show(string $id) {
-        return new EventResource(
-            Event::query()->where('id', $id)
-                ->firstOrFail()
         );
     }
 
