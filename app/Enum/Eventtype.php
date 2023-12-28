@@ -5,7 +5,10 @@ namespace App\Enum;
 enum Eventtype: string
 {
 
-    case Birthday = 'birthday';
-    case Death = 'death';
+    case Births = 'births';
+    case Deaths = 'deaths';
+    case Events = 'events';
+    case Holidays = 'holidays';
+    case Selected = 'selected';
     case Other = 'other';
 }

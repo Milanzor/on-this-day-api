@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->integer('eventday');
             $table->integer('eventmonth');
-            $table->year('eventyear');
+            $table->integer('eventyear')->nullable();
             $table->string('eventtype');
             $table->longText('eventdescription')->nullable();
             $table->text('eventtitle')->nullable();

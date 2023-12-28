@@ -16,4 +16,12 @@ class Event extends Model
         'eventyear' => 'integer',
         'eventtype' => Eventtype::class,
     ];
+
+    protected $fillable = [
+        'eventday',
+        'eventmonth',
+        'eventyear',
+        'eventtype',
+        'eventdescription',
+    ];
 }
