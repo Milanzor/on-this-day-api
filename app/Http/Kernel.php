@@ -91,11 +91,4 @@ class Kernel extends HttpKernel
         'verified' => EnsureEmailIsVerified::class,
     ];
 
-
-    protected function schedule(Schedule $schedule)
-    {
-        $schedule->call(function () {
-
-        })->dailyAt('00:00');
-    }
 }
