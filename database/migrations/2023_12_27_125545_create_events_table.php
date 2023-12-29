@@ -9,8 +9,9 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up(): void {
-        Schema::create('events', function(Blueprint $table) {
+    public function up(): void
+    {
+        Schema::create('events', static function (Blueprint $table) {
             $table->id();
             $table->integer('eventday');
             $table->integer('eventmonth');
@@ -27,7 +28,8 @@ return new class extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down(): void {
+    public function down(): void
+    {
         Schema::dropIfExists('events');
     }
 };

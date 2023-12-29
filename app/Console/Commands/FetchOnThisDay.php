@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Wikimedia\Wikimedia;
 use Exception;
 use Illuminate\Console\Command;
+use Illuminate\Support\Collection;
 use RuntimeException;
 
 class FetchOnThisDay extends Command
@@ -47,9 +48,12 @@ class FetchOnThisDay extends Command
         $now = now();
 
         # Delete all events for today
-        Event::query()->where('eventmonth', $now->month)->where('eventday', $now->day)->delete();
+        Event::query()
+            ->where('eventmonth', $now->month)
+            ->where('eventday', $now->day)
+            ->delete();
 
-        collect($response->json())->each(function ($items, $category) use ($now) {
+        $events = collect($response->json())->map(function ($items, $category) use ($now) {
 
             $Eventtype = Eventtype::tryFrom($category);
 
@@ -57,17 +61,24 @@ class FetchOnThisDay extends Command
                 $Eventtype = Eventtype::Other;
             }
 
-            collect($items)->each(function ($item) use ($Eventtype, $now) {
+            return collect($items)->map(function ($item) use ($Eventtype, $now) {
 
-                Event::query()->updateOrCreate([
+                return [
                     'eventtype' => $Eventtype,
                     'eventyear' => $item['year'] ?? null,
                     'eventmonth' => $now->month,
                     'eventday' => $now->day,
                     'eventdescription' => $item['text'],
-                ]);
+                ];
 
-            });
+            })->toArray();
+
+
+        })->flatten(1);
+
+        // Insert
+        $events->each(function ($event) {
+            Event::query()->create($event);
         });
 
     }

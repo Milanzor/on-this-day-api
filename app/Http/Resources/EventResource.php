@@ -8,10 +8,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class EventResource extends JsonResource
 {
 
-    protected $availableIncludes = [
-        'eventtype',
-    ];
-
     /**
      * Transform the resource into an array.
      *
