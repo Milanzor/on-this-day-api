@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Enum\Eventtype;
+use App\Enum\EventCategory;
 use App\Http\Resources\EventResource;
 use App\Models\Event;
 use Illuminate\Http\Request;
@@ -18,7 +18,7 @@ class EventController extends Controller
                 ->where('eventday', $day)
                 ->where('eventmonth', $month)
                 ->when(
-                    $eventtype = Eventtype::tryFrom($request->query('type', 'selected')),
+                    $eventtype = EventCategory::tryFrom($request->query('type', 'selected')),
                     function ($query) use ($eventtype) {
                         return $query->where('eventtype', $eventtype);
                     }

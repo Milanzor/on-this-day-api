@@ -2,12 +2,11 @@
 
 namespace App\Enum;
 
-enum Eventtype: string
+enum EventCategory: string
 {
 
     case Births = 'births';
     case Deaths = 'deaths';
-    case Events = 'events';
     case Holidays = 'holidays';
     case Selected = 'selected';
     case Other = 'other';

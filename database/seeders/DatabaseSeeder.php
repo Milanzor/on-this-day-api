@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Enum\Eventtype;
-use Database\Factories\EventFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

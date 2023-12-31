@@ -19,7 +19,6 @@ return new class extends Migration {
             $table->string('eventtype');
             $table->longText('eventdescription')->nullable();
             $table->text('eventtitle')->nullable();
-            $table->string('externalid')->nullable()->index();
             $table->index(['eventday', 'eventmonth']);
             $table->timestamps();
         });

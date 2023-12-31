@@ -2,12 +2,12 @@
 
 namespace App\Console\Commands;
 
-use App\Enum\Eventtype;
-use App\Models\Event;
-use App\Wikimedia\Wikimedia;
-use Exception;
+use App\DataObject\EventDataObject;
+use App\Enum\EventCategory;
+use App\Enum\EventLanguage;
+use App\Enum\Wikimedia\WikimediaLanguageEnum;
+use App\Repository\EventRepository;
 use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 use RuntimeException;
 
 class FetchOnThisDay extends Command
@@ -29,13 +29,19 @@ class FetchOnThisDay extends Command
     /**
      * Execute the console command.
      */
-    public function handle(Wikimedia $wikimedia)
+    public function handle(EventRepository $eventRepository): void
     {
-        $success = false;
-        $response = null;
 
-        $response = retry(60, static function () use ($wikimedia) {
-            $response = $wikimedia->on_this_day();
+        $now = now();
+        $WikimediaLanguage = WikimediaLanguageEnum::English;
+
+        $response = retry(60, static function () use ($eventRepository, $now, $WikimediaLanguage) {
+
+            $response = $eventRepository->getEventsFromWikimedia(
+                $WikimediaLanguage,
+                $now->month,
+                $now->day,
+            );
 
             if (!$response->successful()) {
                 throw new RuntimeException('Failed to fetch on this day data');
@@ -43,43 +49,37 @@ class FetchOnThisDay extends Command
 
             return $response;
 
-        }, 5000);
+        }, 300);
 
-        $now = now();
+        if (!$response->successful()) {
+            throw new RuntimeException('Failed to fetch on this day data after retrying');
+        }
 
-        # Delete all events for today
-        Event::query()
-            ->where('eventmonth', $now->month)
-            ->where('eventday', $now->day)
-            ->delete();
+        $events = collect($response->json())->map(function ($items, $category) use ($now, $WikimediaLanguage) {
 
-        $events = collect($response->json())->map(function ($items, $category) use ($now) {
+            $EventCategory = EventCategory::tryFrom($category);
 
-            $Eventtype = Eventtype::tryFrom($category);
-
-            if (!$Eventtype) {
-                $Eventtype = Eventtype::Other;
+            if (!$EventCategory) {
+                $EventCategory = EventCategory::Other;
             }
 
-            return collect($items)->map(function ($item) use ($Eventtype, $now) {
+            return collect($items)->map(function ($item) use ($EventCategory, $now, $WikimediaLanguage) {
 
-                return [
-                    'eventtype' => $Eventtype,
-                    'eventyear' => $item['year'] ?? null,
-                    'eventmonth' => $now->month,
-                    'eventday' => $now->day,
-                    'eventdescription' => $item['text'],
-                ];
+                return new EventDataObject(
+                    $item['text'],
+                    $now->month,
+                    $now->day,
+                    $EventCategory,
+                    EventLanguage::from($WikimediaLanguage->value),
+                );
 
             })->toArray();
 
 
         })->flatten(1);
 
-        // Insert
-        $events->each(function ($event) {
-            Event::query()->create($event);
-        });
+        $eventRepository->insertManyEvents($events);
+
 
     }
 }

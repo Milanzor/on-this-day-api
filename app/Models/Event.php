@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Enum\Eventtype;
+use App\Enum\EventCategory;
+use App\Enum\EventLanguage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +15,9 @@ class Event extends Model
         'eventday' => 'integer',
         'eventmonth' => 'integer',
         'eventyear' => 'integer',
-        'eventtype' => Eventtype::class,
+        'eventcategory' => EventCategory::class,
+        'eventdescription' => 'string',
+        'eventlanguage' => EventLanguage::class,
     ];
 
     protected $fillable = [

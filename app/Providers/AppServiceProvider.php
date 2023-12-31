@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Repository\EventRepository;
 use App\Wikimedia\Wikimedia;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,8 +13,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(Wikimedia::class, function ($app) {
-            return new Wikimedia(config('services.wikimedia.access_token'));
+
+        $wikimedia = new Wikimedia(config('services.wikimedia.access_token'));
+        $this->app->singleton(Wikimedia::class, function () use ($wikimedia) {
+            return $wikimedia;
+        });
+
+        $this->app->singleton(EventRepository::class, function () use ($wikimedia) {
+            return new EventRepository($wikimedia);
         });
     }
 

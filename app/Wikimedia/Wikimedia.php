@@ -2,25 +2,26 @@
 
 namespace App\Wikimedia;
 
-use Exception;
+use App\Enum\Wikimedia\WikimediaLanguageEnum;
 use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
 class Wikimedia
 {
 
-    private const BASE_URL = 'https://api.wikimedia.org/feed/v1/wikipedia/';
-    private string $language = 'en';
+    private const BASE_URL = 'https://api.wikimedia.org/feed/v1/';
 
     public function __construct(readonly private ?string $accessToken = null)
     {
         //
     }
 
-    public function on_this_day()
+    public function on_this_day(WikimediaLanguageEnum $languageEnum, string $month, string $day): Response
     {
-        return $this->client()->get($this->formatRequestUrl('onthisday'));
-
+        return $this
+            ->client()
+            ->get($this->formatOnThisDayRequestUrl($languageEnum, $month, $day));
     }
 
     private function client(): PendingRequest
@@ -36,31 +37,12 @@ class Wikimedia
             $headers['Authorization'] = "Bearer {$this->accessToken}";
         }
 
-        return Http::withHeaders($headers);
+        return Http::withHeaders($headers)->baseUrl(self::BASE_URL);
     }
 
-    private function formatRequestUrl(string $type): string
+    private function formatOnThisDayRequestUrl(WikimediaLanguageEnum $languageEnum, string $month, string $day): string
     {
-        return match ($type) {
-            'onthisday' => $this->formatOnThisDayRequestUrl(),
-            default => throw new Exception('Invalid request type'),
-        };
+        return sprintf("wikipedia/%s/onthisday/all/%s/%s", $languageEnum->value, $month, $day);
     }
 
-    private function formatOnThisDayRequestUrl(): string
-    {
-        $now = now();
-        return sprintf("%s%s/onthisday/all/%s/%s", self::BASE_URL, $this->getLanguage(), $now->month, $now->day);
-    }
-
-    public function getLanguage(): string
-    {
-        return $this->language;
-    }
-
-    public function setLanguage(string $language): self
-    {
-        $this->language = $language;
-        return $this;
-    }
 }
