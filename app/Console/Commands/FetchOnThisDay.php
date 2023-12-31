@@ -71,6 +71,7 @@ class FetchOnThisDay extends Command
                     $now->day,
                     $EventCategory,
                     EventLanguage::from($WikimediaLanguage->value),
+                    $item['year'] ?? null,
                 );
 
             })->toArray();

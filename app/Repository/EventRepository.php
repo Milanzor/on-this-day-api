@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\DataObject\EventDataObject;
+use App\Enum\EventCategory;
+use App\Enum\EventLanguage;
 use App\Enum\Wikimedia\WikimediaLanguageEnum;
 use App\Models\Event;
 use App\Wikimedia\Wikimedia;
@@ -54,5 +56,28 @@ readonly class EventRepository
             $save_data,
         );
 
+    }
+
+    public function fetchEvents(
+        int $month,
+        int $day,
+        ?EventLanguage $eventLanguage,
+        ?EventCategory $eventCategory,
+        int $limit = 10
+    ): Collection {
+
+
+        return Event::query()
+            ->where('eventday', $day)
+            ->where('eventmonth', $month)
+            ->when($eventLanguage, function ($query) use ($eventLanguage) {
+                $query->where('eventlanguage', $eventLanguage);
+            })
+            ->when($eventCategory, function ($query) use ($eventCategory) {
+                $query->where('eventcategory', $eventCategory);
+            })
+            ->orderBy('eventyear', 'DESC')
+            ->limit($limit)
+            ->get();
     }
 }
