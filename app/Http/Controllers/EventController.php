@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Enum\EventCategory;
-use App\Enum\EventLanguage;
+use App\Enum\Category;
+use App\Enum\Language;
 use App\Http\Resources\EventResource;
 use App\Repository\EventRepository;
 use Illuminate\Http\Request;
@@ -19,8 +19,8 @@ class EventController extends Controller
     #[UrlParam(name: 'month', description: 'The month of the event', example: 12)]
     #[UrlParam(name: 'day', description: 'The day of the event', example: 31)]
     #[QueryParam(name: 'limit', type: 'integer', description: 'The limit of the events', required: false, example: 10)]
-    #[QueryParam(name: 'category', description: 'The category of the event', required: false, example: 'births', enum: EventCategory::class)]
-    #[QueryParam(name: 'language', description: 'The language of the event', required: false, example: 'en', enum: EventLanguage::class)]
+    #[QueryParam(name: 'category', description: 'The category of the event', required: false, example: 'births', enum: Category::class)]
+    #[QueryParam(name: 'language', description: 'The language of the event', required: false, example: 'en', enum: Language::class)]
     public function that_happened_on(
         Request $request,
         EventRepository $eventRepository,
@@ -32,8 +32,8 @@ class EventController extends Controller
             $eventRepository->fetchEvents(
                 (int) $month,
                 (int) $day,
-                EventLanguage::tryFrom($request->query('language', 'en')),
-                EventCategory::tryFrom($request->query('category', 'selected')),
+                Language::tryFrom($request->query('language', 'en')),
+                Category::tryFrom($request->query('category', 'selected')),
                 (int) $request->query('limit', 10),
             )
         );

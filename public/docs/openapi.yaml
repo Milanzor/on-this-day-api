@@ -59,103 +59,11 @@ paths:
               schema:
                 type: object
                 example:
-                  data:
-                    -
-                      year: null
-                      category: births
-                      description: 'Joe Scally, American soccer player'
-                    -
-                      year: null
-                      category: births
-                      description: 'Katie Volynets, American tennis player'
-                    -
-                      year: null
-                      category: births
-                      description: 'Alycia Parks, American tennis player'
-                    -
-                      year: null
-                      category: births
-                      description: 'Hunter Schafer, American actress, model, and activist'
-                    -
-                      year: null
-                      category: births
-                      description: 'Cameron Carter-Vickers, English-American soccer player'
-                    -
-                      year: null
-                      category: births
-                      description: 'J. J. Arcega-Whiteside, Spanish-American football player'
-                    -
-                      year: null
-                      category: births
-                      description: 'Gabby Douglas, American gymnast'
-                    -
-                      year: null
-                      category: births
-                      description: 'Edmond Sumner, American basketball player'
-                    -
-                      year: null
-                      category: births
-                      description: 'Amy Cure, Australian track cyclist'
-                    -
-                      year: null
-                      category: births
-                      description: 'Karl Kruuda, Estonian racing driver'
+                  data: []
                 properties:
                   data:
                     type: array
-                    example:
-                      -
-                        year: null
-                        category: births
-                        description: 'Joe Scally, American soccer player'
-                      -
-                        year: null
-                        category: births
-                        description: 'Katie Volynets, American tennis player'
-                      -
-                        year: null
-                        category: births
-                        description: 'Alycia Parks, American tennis player'
-                      -
-                        year: null
-                        category: births
-                        description: 'Hunter Schafer, American actress, model, and activist'
-                      -
-                        year: null
-                        category: births
-                        description: 'Cameron Carter-Vickers, English-American soccer player'
-                      -
-                        year: null
-                        category: births
-                        description: 'J. J. Arcega-Whiteside, Spanish-American football player'
-                      -
-                        year: null
-                        category: births
-                        description: 'Gabby Douglas, American gymnast'
-                      -
-                        year: null
-                        category: births
-                        description: 'Edmond Sumner, American basketball player'
-                      -
-                        year: null
-                        category: births
-                        description: 'Amy Cure, Australian track cyclist'
-                      -
-                        year: null
-                        category: births
-                        description: 'Karl Kruuda, Estonian racing driver'
-                    items:
-                      type: object
-                      properties:
-                        year:
-                          type: string
-                          example: null
-                        category:
-                          type: string
-                          example: births
-                        description:
-                          type: string
-                          example: 'Joe Scally, American soccer player'
+                    example: []
       tags:
         - Endpoints
       security: []

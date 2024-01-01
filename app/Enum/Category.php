@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-enum EventCategory: string
+enum Category: string
 {
 
     case Births = 'births';

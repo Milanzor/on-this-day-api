@@ -3,8 +3,8 @@
 namespace App\Console\Commands;
 
 use App\DataObject\EventDataObject;
-use App\Enum\EventCategory;
-use App\Enum\EventLanguage;
+use App\Enum\Category;
+use App\Enum\Language;
 use App\Enum\Wikimedia\WikimediaLanguageEnum;
 use App\Repository\EventRepository;
 use Illuminate\Console\Command;
@@ -57,10 +57,10 @@ class FetchOnThisDay extends Command
 
         $events = collect($response->json())->map(function ($items, $category) use ($now, $WikimediaLanguage) {
 
-            $EventCategory = EventCategory::tryFrom($category);
+            $EventCategory = Category::tryFrom($category);
 
             if (!$EventCategory) {
-                $EventCategory = EventCategory::Other;
+                $EventCategory = Category::Other;
             }
 
             return collect($items)->map(function ($item) use ($EventCategory, $now, $WikimediaLanguage) {
@@ -70,7 +70,7 @@ class FetchOnThisDay extends Command
                     $now->month,
                     $now->day,
                     $EventCategory,
-                    EventLanguage::from($WikimediaLanguage->value),
+                    Language::from($WikimediaLanguage->value),
                     $item['year'] ?? null,
                 );
 

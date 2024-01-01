@@ -13,13 +13,14 @@ return new class extends Migration {
     {
         Schema::create('events', static function (Blueprint $table) {
             $table->id();
-            $table->integer('eventday');
-            $table->integer('eventmonth');
-            $table->integer('eventyear')->nullable();
-            $table->string('eventtype');
-            $table->longText('eventdescription')->nullable();
-            $table->text('eventtitle')->nullable();
-            $table->index(['eventday', 'eventmonth']);
+            $table->string('language')->nullable();
+            $table->string('hash')->unique();
+            $table->integer('day');
+            $table->integer('month');
+            $table->integer('year')->nullable();
+            $table->string('category');
+            $table->longText('description')->nullable();
+            $table->index(['day', 'month', 'language']);
             $table->timestamps();
         });
     }

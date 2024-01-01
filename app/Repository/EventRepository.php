@@ -3,8 +3,8 @@
 namespace App\Repository;
 
 use App\DataObject\EventDataObject;
-use App\Enum\EventCategory;
-use App\Enum\EventLanguage;
+use App\Enum\Category;
+use App\Enum\Language;
 use App\Enum\Wikimedia\WikimediaLanguageEnum;
 use App\Models\Event;
 use App\Wikimedia\Wikimedia;
@@ -43,12 +43,12 @@ readonly class EventRepository
         }
 
         $save_data = [
-            'eventdescription' => $event->description,
-            'eventmonth' => $event->month,
-            'eventday' => $event->day,
-            'eventcategory' => $event->category,
-            'eventlanguage' => $event->language,
-            'eventyear' => $event->year,
+            'description' => $event->description,
+            'month' => $event->month,
+            'day' => $event->day,
+            'category' => $event->category,
+            'language' => $event->language,
+            'year' => $event->year,
             'hash' => $hash,
         ];
 
@@ -61,22 +61,22 @@ readonly class EventRepository
     public function fetchEvents(
         int $month,
         int $day,
-        ?EventLanguage $eventLanguage,
-        ?EventCategory $eventCategory,
+        ?Language $eventLanguage,
+        ?Category $eventCategory,
         int $limit = 10
     ): Collection {
 
 
         return Event::query()
-            ->where('eventday', $day)
-            ->where('eventmonth', $month)
+            ->where('day', $day)
+            ->where('month', $month)
             ->when($eventLanguage, function ($query) use ($eventLanguage) {
-                $query->where('eventlanguage', $eventLanguage);
+                $query->where('language', $eventLanguage);
             })
             ->when($eventCategory, function ($query) use ($eventCategory) {
-                $query->where('eventcategory', $eventCategory);
+                $query->where('category', $eventCategory);
             })
-            ->orderBy('eventyear', 'DESC')
+            ->orderBy('year', 'DESC')
             ->limit($limit)
             ->get();
     }

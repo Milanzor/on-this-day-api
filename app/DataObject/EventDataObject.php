@@ -2,8 +2,8 @@
 
 namespace App\DataObject;
 
-use App\Enum\EventCategory;
-use App\Enum\EventLanguage;
+use App\Enum\Category;
+use App\Enum\Language;
 
 class EventDataObject
 {
@@ -13,8 +13,8 @@ class EventDataObject
         public readonly string $description,
         public readonly int $month,
         public readonly int $day,
-        public readonly EventCategory $category,
-        public readonly EventLanguage $language,
+        public readonly Category $category,
+        public readonly Language $language,
         public readonly ?int $year = null,
     ) {
 

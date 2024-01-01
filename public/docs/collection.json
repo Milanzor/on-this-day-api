@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "70bd1b02-5cbf-4d6d-bd70-7f28603dd844",
+        "_postman_id": "f77ff596-ab5c-4309-8048-4fd2f96ff52a",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -95,7 +95,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "36"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -103,7 +103,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"year\":null,\"category\":\"births\",\"description\":\"Joe Scally, American soccer player\"},{\"year\":null,\"category\":\"births\",\"description\":\"Katie Volynets, American tennis player\"},{\"year\":null,\"category\":\"births\",\"description\":\"Alycia Parks, American tennis player\"},{\"year\":null,\"category\":\"births\",\"description\":\"Hunter Schafer, American actress, model, and activist\"},{\"year\":null,\"category\":\"births\",\"description\":\"Cameron Carter-Vickers, English-American soccer player\"},{\"year\":null,\"category\":\"births\",\"description\":\"J. J. Arcega-Whiteside, Spanish-American football player\"},{\"year\":null,\"category\":\"births\",\"description\":\"Gabby Douglas, American gymnast\"},{\"year\":null,\"category\":\"births\",\"description\":\"Edmond Sumner, American basketball player\"},{\"year\":null,\"category\":\"births\",\"description\":\"Amy Cure, Australian track cyclist\"},{\"year\":null,\"category\":\"births\",\"description\":\"Karl Kruuda, Estonian racing driver\"}]}",
+                            "body": "{\"data\":[]}",
                             "name": ""
                         }
                     ]

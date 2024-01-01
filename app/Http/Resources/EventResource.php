@@ -5,6 +5,11 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @property mixed $category
+ * @property mixed $description
+ * @property mixed $year
+ */
 class EventResource extends JsonResource
 {
 
@@ -16,9 +21,9 @@ class EventResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'year' => $this->eventyear,
-            'category' => $this->eventcategory,
-            'description' => $this->eventdescription,
+            'year' => $this->year,
+            'category' => $this->category,
+            'description' => $this->description,
         ];
     }
 }

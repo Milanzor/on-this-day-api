@@ -85,12 +85,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"year":null,"category":"births","description":"Joe Scally, American soccer player"},{"year":null,"category":"births","description":"Katie Volynets, American tennis player"},{"year":null,"category":"births","description":"Alycia Parks, American tennis player"},{"year":null,"category":"births","description":"Hunter Schafer, American actress, model, and activist"},{"year":null,"category":"births","description":"Cameron Carter-Vickers, English-American soccer player"},{"year":null,"category":"births","description":"J. J. Arcega-Whiteside, Spanish-American football player"},{"year":null,"category":"births","description":"Gabby Douglas, American gymnast"},{"year":null,"category":"births","description":"Edmond Sumner, American basketball player"},{"year":null,"category":"births","description":"Amy Cure, Australian track cyclist"},{"year":null,"category":"births","description":"Karl Kruuda, Estonian racing driver"}]}'
+        content: '{"data":[]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '36'
+          x-ratelimit-remaining: '59'
           access-control-allow-origin: '*'
         description: null
         custom: []

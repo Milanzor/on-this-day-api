@@ -3,7 +3,7 @@
 
 namespace App\Enum;
 
-enum EventLanguage: string
+enum Language: string
 {
     case English = 'en';
 }
