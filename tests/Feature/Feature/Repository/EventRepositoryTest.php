@@ -31,7 +31,7 @@ it('inserts an event', function () {
 
 });
 
-it('It does not insert duplicate events', function () {
+it('does not insert duplicate events', function () {
 
     /** @var EventRepository $eventRepository */
     $eventRepository = App::make(EventRepository::class);

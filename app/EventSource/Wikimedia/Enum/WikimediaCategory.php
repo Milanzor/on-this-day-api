@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enum\Wikimedia;
+namespace App\EventSource\Wikimedia\Enum;
 
 enum WikimediaCategory: string
 {

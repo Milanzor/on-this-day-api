@@ -6,8 +6,8 @@ use App\DataObject\EventDataObject;
 use App\Enum\Category;
 use App\Enum\Language;
 use App\Enum\Source;
-use App\Enum\Wikimedia\WikimediaLanguage;
 use App\Repository\EventRepository;
+use App\EventSource\Wikimedia\Enum\WikimediaLanguage;
 use Illuminate\Console\Command;
 use RuntimeException;
 

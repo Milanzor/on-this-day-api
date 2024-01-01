@@ -3,7 +3,7 @@
 
 namespace App\Enum;
 
-use App\Enum\Wikimedia\WikimediaLanguage;
+use App\EventSource\Wikimedia\Enum\WikimediaLanguage;
 use Exception;
 
 enum Language: string

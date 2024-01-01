@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-use App\Enum\Wikimedia\WikimediaCategory;
+use App\EventSource\Wikimedia\Enum\WikimediaCategory;
 
 enum Category: string
 {

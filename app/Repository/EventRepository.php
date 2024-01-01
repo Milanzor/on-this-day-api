@@ -6,9 +6,9 @@ use App\DataObject\EventDataObject;
 use App\Enum\Category;
 use App\Enum\Language;
 use App\Enum\Source;
-use App\Enum\Wikimedia\WikimediaLanguage;
+use App\EventSource\Wikimedia\WikimediaEventSource;
 use App\Models\Event;
-use App\Wikimedia\Wikimedia;
+use App\EventSource\Wikimedia\Enum\WikimediaLanguage;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use RuntimeException;
@@ -18,7 +18,7 @@ readonly class EventRepository
 
 
     public function __construct(
-        private Wikimedia $wikimedia
+        private WikimediaEventSource $wikimedia
     ) {
     }
 
