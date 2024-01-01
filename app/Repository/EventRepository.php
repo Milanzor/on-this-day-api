@@ -45,12 +45,12 @@ readonly class EventRepository
         $events->each([$this, 'insertEvent']);
     }
 
-    public function insertEvent(EventDataObject $event): void
+    public function insertEvent(EventDataObject $event): bool|null
     {
 
         $hash = $event->hash();
         if (Event::query()->where('hash', $hash)->exists()) {
-            return;
+            return null;
         }
 
         $save_data = [
@@ -65,7 +65,7 @@ readonly class EventRepository
             'hash' => $hash,
         ];
 
-        Event::query()->create($save_data);
+        return Event::query()->insert($save_data);
 
     }
 
@@ -126,7 +126,8 @@ readonly class EventRepository
             ->orderBy('year', 'DESC');
 
         if (!$query->limit(1)->exists()) {
-            $this->importEventsFromWikimedia(WikimediaLanguage::tryFrom($language->value), $month, $day);
+            $this->importEventsFromWikimedia(WikimediaLanguage::from($language->value), $month, $day);
+
         }
 
         return $query->limit($limit)->get();
