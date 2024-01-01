@@ -21,7 +21,7 @@ it('inserts an event', function () {
         day: 1,
         category: Category::Births,
         language: Language::English,
-        source: Source::Seed,
+        source: Source::Test,
     );
 
     $result = $eventRepository->insertEvent($event);
@@ -42,7 +42,7 @@ it('It does not insert duplicate events', function () {
         day: 1,
         category: Category::Births,
         language: Language::English,
-        source: Source::Seed,
+        source: Source::Test,
     );
 
     $eventRepository->insertEvent($event);
