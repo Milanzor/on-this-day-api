@@ -5,11 +5,13 @@ namespace App\Repository;
 use App\DataObject\EventDataObject;
 use App\Enum\Category;
 use App\Enum\Language;
-use App\Enum\Wikimedia\WikimediaLanguageEnum;
+use App\Enum\Source;
+use App\Enum\Wikimedia\WikimediaLanguage;
 use App\Models\Event;
 use App\Wikimedia\Wikimedia;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
+use RuntimeException;
 
 readonly class EventRepository
 {
@@ -21,12 +23,21 @@ readonly class EventRepository
     }
 
     public function getEventsFromWikimedia(
-        WikimediaLanguageEnum $wikimediaLanguageEnum,
-        string $month,
-        string $day
+        WikimediaLanguage $wikimediaLanguageEnum,
+        int $month,
+        int $day
     ): Response {
 
-        return $this->wikimedia->on_this_day($wikimediaLanguageEnum, $month, $day);
+        return retry(5, function () use ($wikimediaLanguageEnum, $month, $day) {
+
+            $response = $this->wikimedia->on_this_day($wikimediaLanguageEnum, $month, $day);
+            if (!$response->successful()) {
+                throw new RuntimeException('Wikimedia API returned a non-200 response');
+            }
+
+            return $response;
+
+        }, 1000);
     }
 
     public function insertManyEvents(Collection $events): void
@@ -49,35 +60,75 @@ readonly class EventRepository
             'category' => $event->category,
             'language' => $event->language,
             'year' => $event->year,
+            'source' => $event->source,
+            'url' => $event->url,
             'hash' => $hash,
         ];
 
-        Event::query()->insert(
-            $save_data,
-        );
+        Event::query()->create($save_data);
 
+    }
+
+    public function importEventsFromWikimedia(
+        WikimediaLanguage $wikimediaLanguageEnum,
+        int $month,
+        int $day
+    ): void {
+
+        $response = $this->getEventsFromWikimedia($wikimediaLanguageEnum, $month, $day);
+
+        $events = $response->json();
+
+        $events = collect($events)->map(function (array $events, string $category) use (
+            $wikimediaLanguageEnum,
+            $month,
+            $day
+        ) {
+            return collect($events)->map(function (array $event) use ($category, $wikimediaLanguageEnum, $month, $day) {
+                return new EventDataObject(
+                    description: $event['text'],
+                    month: $month,
+                    day: $day,
+                    category: Category::fromWikimediaCategory($category),
+                    language: Language::fromWikimediaLanguage($wikimediaLanguageEnum),
+                    source: Source::Wikimedia,
+                    url: null,
+                    year: $event['year'] ?? null,
+                );
+            });
+
+        })->flatten(1);
+
+        $this->insertManyEvents($events);
     }
 
     public function fetchEvents(
         int $month,
         int $day,
-        ?Language $eventLanguage,
-        ?Category $eventCategory,
+        ?Language $language,
+        ?Category $category,
         int $limit = 10
     ): Collection {
 
+        if ($language === null) {
+            $language = Language::English;
+        }
 
-        return Event::query()
+        if ($category === null) {
+            $category = Category::Regular;
+        }
+
+        $query = Event::query()
             ->where('day', $day)
             ->where('month', $month)
-            ->when($eventLanguage, function ($query) use ($eventLanguage) {
-                $query->where('language', $eventLanguage);
-            })
-            ->when($eventCategory, function ($query) use ($eventCategory) {
-                $query->where('category', $eventCategory);
-            })
-            ->orderBy('year', 'DESC')
-            ->limit($limit)
-            ->get();
+            ->where('language', $language)
+            ->where('category', $category)
+            ->orderBy('year', 'DESC');
+
+        if (!$query->limit(1)->exists()) {
+            $this->importEventsFromWikimedia(WikimediaLanguage::tryFrom($language->value), $month, $day);
+        }
+
+        return $query->limit($limit)->get();
     }
 }

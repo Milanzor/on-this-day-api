@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enum\Category;
 use App\Enum\Language;
+use App\Enum\Source;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,16 +16,24 @@ class Event extends Model
         'day' => 'integer',
         'month' => 'integer',
         'year' => 'integer',
-        'category' => Category::class,
         'description' => 'string',
+        'hash' => 'string',
+        'url' => 'string',
+        'category' => Category::class,
         'language' => Language::class,
+        'source' => Source::class,
     ];
 
     protected $fillable = [
         'day',
         'month',
         'year',
-        'eventtype',
+        'category',
+        'language',
+        'source',
+        'url',
+        'hash',
+        'happiness',
         'description',
     ];
 }

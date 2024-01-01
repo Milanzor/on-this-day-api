@@ -2,9 +2,10 @@
 
 namespace App\Enum\Wikimedia;
 
-enum WikimediaLanguageEnum: string
+enum WikimediaLanguage: string
 {
 
     case English = 'en';
+    case Nederlands = 'nl';
 
 }

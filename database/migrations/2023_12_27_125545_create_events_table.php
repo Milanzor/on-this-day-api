@@ -19,7 +19,10 @@ return new class extends Migration {
             $table->integer('month');
             $table->integer('year')->nullable();
             $table->string('category');
+            $table->string('source');
+            $table->string('url')->nullable();
             $table->longText('description')->nullable();
+            $table->tinyInteger('happiness')->default(0);
             $table->index(['day', 'month', 'language']);
             $table->timestamps();
         });

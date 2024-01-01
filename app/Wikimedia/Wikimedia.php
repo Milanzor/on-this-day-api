@@ -2,7 +2,7 @@
 
 namespace App\Wikimedia;
 
-use App\Enum\Wikimedia\WikimediaLanguageEnum;
+use App\Enum\Wikimedia\WikimediaLanguage;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
@@ -17,7 +17,7 @@ class Wikimedia
         //
     }
 
-    public function on_this_day(WikimediaLanguageEnum $languageEnum, string $month, string $day): Response
+    public function on_this_day(WikimediaLanguage $languageEnum, int $month, int $day): Response
     {
         return $this
             ->client()
@@ -40,7 +40,7 @@ class Wikimedia
         return Http::withHeaders($headers)->baseUrl(self::BASE_URL);
     }
 
-    private function formatOnThisDayRequestUrl(WikimediaLanguageEnum $languageEnum, string $month, string $day): string
+    private function formatOnThisDayRequestUrl(WikimediaLanguage $languageEnum, string $month, string $day): string
     {
         return sprintf("wikipedia/%s/onthisday/all/%s/%s", $languageEnum->value, $month, $day);
     }

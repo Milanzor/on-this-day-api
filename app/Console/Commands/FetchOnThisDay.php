@@ -5,7 +5,8 @@ namespace App\Console\Commands;
 use App\DataObject\EventDataObject;
 use App\Enum\Category;
 use App\Enum\Language;
-use App\Enum\Wikimedia\WikimediaLanguageEnum;
+use App\Enum\Source;
+use App\Enum\Wikimedia\WikimediaLanguage;
 use App\Repository\EventRepository;
 use Illuminate\Console\Command;
 use RuntimeException;
@@ -33,7 +34,7 @@ class FetchOnThisDay extends Command
     {
 
         $now = now();
-        $WikimediaLanguage = WikimediaLanguageEnum::English;
+        $WikimediaLanguage = WikimediaLanguage::English;
 
         $response = retry(60, static function () use ($eventRepository, $now, $WikimediaLanguage) {
 
@@ -60,18 +61,20 @@ class FetchOnThisDay extends Command
             $EventCategory = Category::tryFrom($category);
 
             if (!$EventCategory) {
-                $EventCategory = Category::Other;
+                $EventCategory = Category::Regular;
             }
 
             return collect($items)->map(function ($item) use ($EventCategory, $now, $WikimediaLanguage) {
 
                 return new EventDataObject(
-                    $item['text'],
-                    $now->month,
-                    $now->day,
-                    $EventCategory,
-                    Language::from($WikimediaLanguage->value),
-                    $item['year'] ?? null,
+                    description: $item['text'],
+                    month: $now->month,
+                    day: $now->day,
+                    category: $EventCategory,
+                    language: Language::from($WikimediaLanguage->value),
+                    source: Source::Wikimedia,
+                    url: null,
+                    year: $item['year'] ?? null,
                 );
 
             })->toArray();
