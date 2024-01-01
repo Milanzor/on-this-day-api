@@ -5,40 +5,22 @@ namespace App\DataObject;
 use App\Enum\Category;
 use App\Enum\Language;
 use App\Enum\Source;
-use App\Enum\Wikimedia\WikimediaLanguage;
 
-class EventDataObject
+readonly class EventDataObject
 {
 
 
     public function __construct(
-        public readonly string $description,
-        public readonly int $month,
-        public readonly int $day,
-        public readonly Category $category,
-        public readonly Language $language,
-        public readonly Source $source,
-        public readonly ?string $url = null,
-        public readonly ?int $year = null,
+        public string $description,
+        public int $month,
+        public int $day,
+        public Category $category,
+        public Language $language,
+        public Source $source,
+        public ?string $url = null,
+        public ?int $year = null,
     ) {
 
-    }
-
-    public static function fromWikimedia(
-        array $event,
-        int $month,
-        int $day,
-
-        WikimediaLanguage $wikimediaLanguageEnum
-    ): self {
-        return new self(
-            description: $event['text'],
-            month: $month,
-            day: $day,
-            category: Category::tryFrom($event['type']),
-            language: Language::tryFrom($wikimediaLanguageEnum->value),
-            year: $event['year'],
-        );
     }
 
     public function hash(): string
