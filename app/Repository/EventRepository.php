@@ -6,9 +6,10 @@ use App\DataObject\EventDataObject;
 use App\Enum\Category;
 use App\Enum\Language;
 use App\Enum\Source;
+use App\EventSource\Base\Interface\EventSourceInterface;
+use App\EventSource\Wikimedia\Enum\WikimediaLanguage;
 use App\EventSource\Wikimedia\WikimediaEventSource;
 use App\Models\Event;
-use App\EventSource\Wikimedia\Enum\WikimediaLanguage;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use RuntimeException;
@@ -16,33 +17,33 @@ use RuntimeException;
 readonly class EventRepository
 {
 
-
-    public function __construct(
-        private WikimediaEventSource $wikimedia
-    ) {
-    }
-
-    public function getEventsFromWikimedia(
-        WikimediaLanguage $wikimediaLanguageEnum,
-        int $month,
-        int $day
-    ): Response {
-
-        return retry(5, function () use ($wikimediaLanguageEnum, $month, $day) {
-
-            $response = $this->wikimedia->on_this_day($wikimediaLanguageEnum, $month, $day);
-            if (!$response->successful()) {
-                throw new RuntimeException('Wikimedia API returned a non-200 response');
-            }
-
-            return $response;
-
-        }, 1000);
-    }
-
-    public function insertManyEvents(Collection $events): void
+    public function importFromAllEventSources(Language $language, int $month, int $day): void
     {
-        $events->each([$this, 'insertEvent']);
+
+        collect([
+            (new WikimediaEventSource(config('services.wikimedia.access_token')))
+        ])
+            ->map(fn(EventSourceInterface $eventSource) => $eventSource
+                ->setLanguage($language)
+                ->setMonth($month)
+                ->setDay($day)
+            )
+            ->each([$this, 'import'])
+            ->empty();
+
+    }
+
+
+    public function import(EventSourceInterface $eventSource): Collection
+    {
+
+        // Launch the event source
+        $eventSource->fetch();
+
+        // Format the events into a Collection of EventDataObjects
+        return $eventSource->collectEventDataObjects()
+            ->each([$this, 'insertEvent']);
+
     }
 
     public function insertEvent(EventDataObject $event): bool|null
@@ -69,39 +70,6 @@ readonly class EventRepository
 
     }
 
-    public function importEventsFromWikimedia(
-        WikimediaLanguage $wikimediaLanguageEnum,
-        int $month,
-        int $day
-    ): void {
-
-        $response = $this->getEventsFromWikimedia($wikimediaLanguageEnum, $month, $day);
-
-        $events = $response->json();
-
-        $events = collect($events)->map(function (array $events, string $category) use (
-            $wikimediaLanguageEnum,
-            $month,
-            $day
-        ) {
-            return collect($events)->map(function (array $event) use ($category, $wikimediaLanguageEnum, $month, $day) {
-                return new EventDataObject(
-                    description: $event['text'],
-                    month: $month,
-                    day: $day,
-                    category: Category::fromWikimediaCategory($category),
-                    language: Language::fromWikimediaLanguage($wikimediaLanguageEnum),
-                    source: Source::Wikimedia,
-                    url: null,
-                    year: $event['year'] ?? null,
-                );
-            });
-
-        })->flatten(1);
-
-        $this->insertManyEvents($events);
-    }
-
     public function fetchEvents(
         int $month,
         int $day,
@@ -126,8 +94,7 @@ readonly class EventRepository
             ->orderBy('year', 'DESC');
 
         if (!$query->limit(1)->exists()) {
-            $this->importEventsFromWikimedia(WikimediaLanguage::from($language->value), $month, $day);
-
+            $this->importFromAllEventSources($language, $month, $day);
         }
 
         return $query->limit($limit)->get();

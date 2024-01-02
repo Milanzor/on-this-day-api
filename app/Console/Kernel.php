@@ -12,7 +12,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('app:fetch-on-this-day')->dailyAt('00:00');
     }
 
     /**
