@@ -17,7 +17,6 @@ it('generates a correct hash', function () {
         source: Source::Test,
     );
 
-    $hash = $event->hash();
-
-    expect($hash)->toBe('9882f82142e584ba9abed0ad37eed75185d48cec848286c7cb0df27ecfde2df8');
+    expect($event->hash())
+        ->toBe('9882f82142e584ba9abed0ad37eed75185d48cec848286c7cb0df27ecfde2df8');
 });

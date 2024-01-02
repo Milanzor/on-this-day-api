@@ -2,6 +2,9 @@
 
 
 use App\EventSource\Wikimedia\WikimediaEventSource;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class);
 
 it('should set an access token header', function () {
 
