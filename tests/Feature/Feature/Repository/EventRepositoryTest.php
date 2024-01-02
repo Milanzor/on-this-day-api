@@ -61,12 +61,13 @@ it('can import from Wikimedia', function () {
     $eventRepository = App::make(EventRepository::class);
 
     Http::fake([
-        'wikipedia/en/onthisday/all/1/1' => Http::response([
+        'wikipedia/*' => Http::response([
             'births' => [
                 [
                     'year' => '2021',
                     'text' => 'Piet',
-                ], [
+                ],
+                [
                     'year' => '2022',
                     'text' => 'Jan',
                 ],

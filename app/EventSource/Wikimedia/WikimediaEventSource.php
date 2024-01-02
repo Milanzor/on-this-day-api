@@ -56,7 +56,7 @@ class WikimediaEventSource extends BaseEventSource implements EventSourceInterfa
         }
     }
 
-    private function client(): PendingRequest
+    public function client(): PendingRequest
     {
         $headers = [
             'Accept' => 'application/json',
