@@ -18,5 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'prefix' => 'v1',
 ], static function() {
-    Route::get('events/that-happened-on/{month}/{day}', [EventController::class, 'that_happened_on'])->name('events.today');
+    Route::get('events/that-happened-on/{month}/{day}', [EventController::class, 'that_happened_on'])->name('events.that_happened_on');
 });
