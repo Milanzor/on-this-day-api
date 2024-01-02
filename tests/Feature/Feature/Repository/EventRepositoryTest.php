@@ -9,7 +9,6 @@ use App\Models\Event;
 use App\Repository\EventRepository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Http;
 
 uses(RefreshDatabase::class);
 
@@ -60,29 +59,13 @@ it('can import from Wikimedia', function () {
     /** @var EventRepository $eventRepository */
     $eventRepository = App::make(EventRepository::class);
 
-    Http::fake([
-        'wikipedia/*' => Http::response([
-            'births' => [
-                [
-                    'year' => '2021',
-                    'text' => 'Piet',
-                ],
-                [
-                    'year' => '2022',
-                    'text' => 'Jan',
-                ],
-            ],
-            'deaths' => [],
-            'events' => [],
-        ]),
-    ]);
-
     $eventRepository->import(
         (new WikimediaEventSource(config('services.wikimedia.access_token')))
+            ->willFake()
             ->setLanguage(Language::English)
             ->setMonth(1)
             ->setDay(1)
     );
 
-    expect(Event::query()->limit(1)->count())->toBe(2);
+    expect(Event::query()->count())->toBe(9);
 });

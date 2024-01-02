@@ -103,4 +103,65 @@ class WikimediaEventSource extends BaseEventSource implements EventSourceInterfa
         );
     }
 
+    public function willFake(): self
+    {
+
+        Http::fake([
+            'wikipedia/*/onthisday/*' => Http::response([
+                'births' => [
+                    [
+                        'year' => 1930,
+                        'text' => 'Piet',
+                    ],
+                    [
+                        'year' => 1930,
+                        'text' => 'Jan',
+                    ],
+                ],
+                'deaths' => [
+                    [
+                        'year' => 2000,
+                        'text' => 'Piet',
+                    ],
+                    [
+                        'year' => 2023,
+                        'text' => 'Jan',
+                    ],
+                ],
+                'events' => [
+                    [
+                        'year' => 1231,
+                        'text' => 'Something happened',
+                    ],
+                    [
+                        'year' => 1234,
+                        'text' => 'Something else happened',
+                    ],
+                ],
+                'holidays' => [
+                    [
+                        'year' => null,
+                        'text' => 'Christmas holiday',
+                    ],
+                    [
+                        'year' => null,
+                        'text' => 'Christmas holiday',
+                    ],
+                ],
+                'selected' => [
+                    [
+                        'year' => 2021,
+                        'text' => 'Highlight of the year was today',
+                    ],
+                    [
+                        'year' => 2022,
+                        'text' => 'Highlight of the year was today',
+                    ],
+                ],
+            ]),
+        ]);
+
+        return $this;
+    }
+
 }
