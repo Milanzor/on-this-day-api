@@ -4,7 +4,7 @@ namespace App\EventSource\Base;
 
 use App\Enum\Language;
 
-class BaseEventSource
+abstract class AbstractEventSource
 {
     protected Language $language;
 

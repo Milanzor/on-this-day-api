@@ -5,7 +5,7 @@ namespace App\EventSource\Wikimedia;
 use App\DataObject\EventDataObject;
 use App\Enum\Category;
 use App\Enum\Source;
-use App\EventSource\Base\BaseEventSource;
+use App\EventSource\Base\AbstractEventSource;
 use App\EventSource\Base\Interface\EventSourceInterface;
 use App\EventSource\Wikimedia\Enum\WikimediaCategory;
 use App\EventSource\Wikimedia\Enum\WikimediaLanguage;
@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use RuntimeException;
 
-class WikimediaEventSource extends BaseEventSource implements EventSourceInterface
+class WikimediaEventSource extends AbstractEventSource implements EventSourceInterface
 {
 
     /**
