@@ -325,7 +325,7 @@
 
         </div>
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
-            Last updated: January 1, 2024
+            Last updated: January 4, 2024
         </div>
 
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
@@ -402,7 +402,8 @@ You can switch the language used with the tabs at the top right (or from the nav
                                     </div>
         </div>
 
-        
+        <p>Fetch events that happened on a specific day
+This endpoint fetches events that happened on a specific day.</p>
     </div>
     <div class="sl-flex">
         <div data-testid="two-column-left" class="sl-flex-1 sl-w-0">
@@ -462,13 +463,13 @@ You can switch the language used with the tabs at the top right (or from the nav
         <div class="sl-flex sl-items-center sl-max-w-full">
                                         <div class="sl-flex sl-items-baseline sl-text-base">
                     <div class="sl-font-mono sl-font-semibold sl-mr-2">month</div>
-                                            <span class="sl-truncate sl-text-muted">string</span>
+                                            <span class="sl-truncate sl-text-muted">integer</span>
                                     </div>
                                     <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
                     <span class="sl-ml-2 sl-text-warning">required</span>
                                     </div>
                 <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
-            <p>The month of the event</p>
+            <p>The month of the events</p>
         </div>
                                             <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
                 <span>Example:</span> <!-- <span> important for spacing -->
@@ -486,13 +487,13 @@ You can switch the language used with the tabs at the top right (or from the nav
         <div class="sl-flex sl-items-center sl-max-w-full">
                                         <div class="sl-flex sl-items-baseline sl-text-base">
                     <div class="sl-font-mono sl-font-semibold sl-mr-2">day</div>
-                                            <span class="sl-truncate sl-text-muted">string</span>
+                                            <span class="sl-truncate sl-text-muted">integer</span>
                                     </div>
                                     <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
                     <span class="sl-ml-2 sl-text-warning">required</span>
                                     </div>
                 <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
-            <p>The day of the event</p>
+            <p>The day of the events</p>
         </div>
                                             <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
                 <span>Example:</span> <!-- <span> important for spacing -->
@@ -547,7 +548,7 @@ You can switch the language used with the tabs at the top right (or from the nav
             <p>The category of the event</p>
         </div>
                             Must be one of:
-            <ul style="list-style-position: inside; list-style-type: square;"><li><code>births</code></li> <li><code>deaths</code></li> <li><code>holidays</code></li> <li><code>selected</code></li> <li><code>other</code></li></ul>
+            <ul style="list-style-position: inside; list-style-type: square;"><li><code>births</code></li> <li><code>deaths</code></li> <li><code>holidays</code></li> <li><code>regular</code></li></ul>
                                     <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
@@ -571,7 +572,7 @@ You can switch the language used with the tabs at the top right (or from the nav
             <p>The language of the event</p>
         </div>
                             Must be one of:
-            <ul style="list-style-position: inside; list-style-type: square;"><li><code>en</code></li></ul>
+            <ul style="list-style-position: inside; list-style-type: square;"><li><code>en</code></li> <li><code>de</code></li> <li><code>fr</code></li> <li><code>sv</code></li> <li><code>pt</code></li> <li><code>ru</code></li> <li><code>es</code></li> <li><code>ar</code></li> <li><code>bs</code></li></ul>
                                     <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
@@ -585,6 +586,85 @@ You can switch the language used with the tabs at the top right (or from the nav
                                                                 </div>
                         </div>
                     
+                                            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">Body Parameters</h3>
+
+                                <div class="sl-text-sm">
+                                    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">limit</div>
+                                            <span class="sl-truncate sl-text-muted">integer</span>
+                                    </div>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>Must be at least 1. Must not be greater than 100.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        12
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">category</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    </div>
+                            Must be one of:
+            <ul style="list-style-position: inside; list-style-type: square;"><li><code>births</code></li> <li><code>deaths</code></li> <li><code>holidays</code></li> <li><code>regular</code></li></ul>
+                                    <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        deaths
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">language</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    </div>
+                            Must be one of:
+            <ul style="list-style-position: inside; list-style-type: square;"><li><code>en</code></li> <li><code>de</code></li> <li><code>fr</code></li> <li><code>sv</code></li> <li><code>pt</code></li> <li><code>ru</code></li> <li><code>es</code></li> <li><code>ar</code></li> <li><code>bs</code></li></ul>
+                                    <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        bs
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+                            </div>
+                        </div>
                     
                                     </div>
             </div>
@@ -599,7 +679,7 @@ You can switch the language used with the tabs at the top right (or from the nav
               data-method="GET"
               data-path="api/v1/events/that-happened-on/{month}/{day}"
               data-hasfiles="0"
-              data-hasjsonbody="0">
+              data-hasjsonbody="1">
             
                             <div class="sl-panel sl-outline-none sl-w-full expandable">
                     <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
@@ -670,7 +750,7 @@ You can switch the language used with the tabs at the top right (or from the nav
                                     <div class="sl-input sl-flex-1 sl-relative">
                                         <input aria-label="month" name="month"
                                                id="urlparam-GETapi-v1-events-that-happened-on--month---day--month"
-                                               placeholder="The month of the event"
+                                               placeholder="The month of the events"
                                                value="12" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
@@ -682,7 +762,7 @@ You can switch the language used with the tabs at the top right (or from the nav
                                     <div class="sl-input sl-flex-1 sl-relative">
                                         <input aria-label="day" name="day"
                                                id="urlparam-GETapi-v1-events-that-happened-on--month---day--day"
-                                               placeholder="The day of the event"
+                                               placeholder="The day of the events"
                                                value="31" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
@@ -752,6 +832,35 @@ You can switch the language used with the tabs at the top right (or from the nav
                     </div>
                 </div>
             
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Body
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                                                    <div class="TextRequestBody sl-p-4">
+                                <div class="code-editor language-json"
+                                     id="json-body-GETapi-v1-events-that-happened-on--month---day-"
+                                     style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
+                                >{
+    "limit": 12,
+    "category": "deaths",
+    "language": "bs"
+}</div>
+                            </div>
+                                            </div>
+                </div>
             
             <div class="SendButtonHolder sl-mt-4 sl-p-4 sl-pt-0">
                 <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-center">
@@ -830,6 +939,8 @@ You can check the Dev Tools console for debugging information.</p>
                                                 onchange="switchExampleLanguage(event.target.value);">
                                                                                             <option>bash</option>
                                                                                             <option>javascript</option>
+                                                                                            <option>php</option>
+                                                                                            <option>python</option>
                                                                                     </select>
                                     </div>
                                 </div>
@@ -841,7 +952,13 @@ You can check the Dev Tools console for debugging information.</p>
                                             <pre><code class="language-bash">curl --request GET \
     --get "https://on-this-day-api.helopsokken.nl/api/v1/events/that-happened-on/12/31?limit=10&amp;category=births&amp;language=en" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>                                        </div>
+    --header "Accept: application/json" \
+    --data "{
+    \"limit\": 12,
+    \"category\": \"deaths\",
+    \"language\": \"bs\"
+}"
+</code></pre>                                        </div>
                                     </div>
                                 </div>
                                                             <div class="sl-bg-canvas-100 example-request example-request-javascript"
@@ -865,10 +982,73 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "limit": 12,
+    "category": "deaths",
+    "language": "bs"
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-php"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-rounded">
+                                            <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'https://on-this-day-api.helopsokken.nl/api/v1/events/that-happened-on/12/31';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'limit' =&gt; '10',
+            'category' =&gt; 'births',
+            'language' =&gt; 'en',
+        ],
+        'json' =&gt; [
+            'limit' =&gt; 12,
+            'category' =&gt; 'deaths',
+            'language' =&gt; 'bs',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-python"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-rounded">
+                                            <pre><code class="language-python">import requests
+import json
+
+url = 'https://on-this-day-api.helopsokken.nl/api/v1/events/that-happened-on/12/31'
+payload = {
+    "limit": 12,
+    "category": "deaths",
+    "language": "bs"
+}
+params = {
+  'limit': '10',
+  'category': 'births',
+  'language': 'en',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers, json=payload, params=params)
+response.json()</code></pre>                                        </div>
                                     </div>
                                 </div>
                                                     </div>
@@ -935,7 +1115,48 @@ fetch(url, {
                                                                                                                                                                         
                                             <pre><code style="max-height: 300px;"
                                                        class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
-    &quot;data&quot;: []
+    &quot;data&quot;: [
+        {
+            &quot;year&quot;: 2021,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Betty White, američka glumica i pjevačica&quot;
+        },
+        {
+            &quot;year&quot;: 2013,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;James L. Avery, američki glumac&quot;
+        },
+        {
+            &quot;year&quot;: 1985,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Ricky Nelson, američki muzičar i glumac&quot;
+        },
+        {
+            &quot;year&quot;: 1889,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Ion Creangă, rumunski književnik&quot;
+        },
+        {
+            &quot;year&quot;: 1877,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Gustave Courbet, francuski slikar&quot;
+        },
+        {
+            &quot;year&quot;: 1691,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Robert Boyle, irski hemičar i fizičar&quot;
+        },
+        {
+            &quot;year&quot;: 1610,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Ludolph van Ceulen, nizozemski matematičar njemačkog porijekla&quot;
+        },
+        {
+            &quot;year&quot;: 192,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Komod, rimski car&quot;
+        }
+    ]
 }</code></pre>
                                                                             </div>
                                 </div>

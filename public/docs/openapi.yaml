@@ -11,7 +11,7 @@ paths:
     get:
       summary: 'Fetch events that happened on a specific day'
       operationId: fetchEventsThatHappenedOnASpecificDay
-      description: ''
+      description: "Fetch events that happened on a specific day\nThis endpoint fetches events that happened on a specific day."
       parameters:
         -
           in: query
@@ -37,8 +37,7 @@ paths:
               - births
               - deaths
               - holidays
-              - selected
-              - other
+              - regular
         -
           in: query
           name: language
@@ -51,6 +50,14 @@ paths:
             example: en
             enum:
               - en
+              - de
+              - fr
+              - sv
+              - pt
+              - ru
+              - es
+              - ar
+              - bs
       responses:
         200:
           description: ''
@@ -59,31 +66,141 @@ paths:
               schema:
                 type: object
                 example:
-                  data: []
+                  data:
+                    -
+                      year: 2021
+                      category: deaths
+                      description: 'Betty White, američka glumica i pjevačica'
+                    -
+                      year: 2013
+                      category: deaths
+                      description: 'James L. Avery, američki glumac'
+                    -
+                      year: 1985
+                      category: deaths
+                      description: 'Ricky Nelson, američki muzičar i glumac'
+                    -
+                      year: 1889
+                      category: deaths
+                      description: 'Ion Creangă, rumunski književnik'
+                    -
+                      year: 1877
+                      category: deaths
+                      description: 'Gustave Courbet, francuski slikar'
+                    -
+                      year: 1691
+                      category: deaths
+                      description: 'Robert Boyle, irski hemičar i fizičar'
+                    -
+                      year: 1610
+                      category: deaths
+                      description: 'Ludolph van Ceulen, nizozemski matematičar njemačkog porijekla'
+                    -
+                      year: 192
+                      category: deaths
+                      description: 'Komod, rimski car'
                 properties:
                   data:
                     type: array
-                    example: []
+                    example:
+                      -
+                        year: 2021
+                        category: deaths
+                        description: 'Betty White, američka glumica i pjevačica'
+                      -
+                        year: 2013
+                        category: deaths
+                        description: 'James L. Avery, američki glumac'
+                      -
+                        year: 1985
+                        category: deaths
+                        description: 'Ricky Nelson, američki muzičar i glumac'
+                      -
+                        year: 1889
+                        category: deaths
+                        description: 'Ion Creangă, rumunski književnik'
+                      -
+                        year: 1877
+                        category: deaths
+                        description: 'Gustave Courbet, francuski slikar'
+                      -
+                        year: 1691
+                        category: deaths
+                        description: 'Robert Boyle, irski hemičar i fizičar'
+                      -
+                        year: 1610
+                        category: deaths
+                        description: 'Ludolph van Ceulen, nizozemski matematičar njemačkog porijekla'
+                      -
+                        year: 192
+                        category: deaths
+                        description: 'Komod, rimski car'
+                    items:
+                      type: object
+                      properties:
+                        year:
+                          type: integer
+                          example: 2021
+                        category:
+                          type: string
+                          example: deaths
+                        description:
+                          type: string
+                          example: 'Betty White, američka glumica i pjevačica'
       tags:
         - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: 'Must be at least 1. Must not be greater than 100.'
+                  example: 12
+                category:
+                  type: string
+                  description: ''
+                  example: deaths
+                  enum:
+                    - births
+                    - deaths
+                    - holidays
+                    - regular
+                language:
+                  type: string
+                  description: ''
+                  example: bs
+                  enum:
+                    - en
+                    - de
+                    - fr
+                    - sv
+                    - pt
+                    - ru
+                    - es
+                    - ar
+                    - bs
       security: []
     parameters:
       -
         in: path
         name: month
-        description: 'The month of the event'
+        description: 'The month of the events'
         example: 12
         required: true
         schema:
-          type: string
+          type: integer
       -
         in: path
         name: day
-        description: 'The day of the event'
+        description: 'The day of the events'
         example: 31
         required: true
         schema:
-          type: string
+          type: integer
 tags:
   -
     name: Endpoints

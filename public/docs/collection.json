@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "f77ff596-ab5c-4309-8048-4fd2f96ff52a",
+        "_postman_id": "144ba362-5c8b-450c-baff-40a0afc3b579",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -51,13 +51,13 @@
                                     "id": "month",
                                     "key": "month",
                                     "value": "12",
-                                    "description": "The month of the event"
+                                    "description": "The month of the events"
                                 },
                                 {
                                     "id": "day",
                                     "key": "day",
                                     "value": "31",
-                                    "description": "The day of the event"
+                                    "description": "The day of the events"
                                 }
                             ]
                         },
@@ -72,8 +72,11 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
-                        "description": "",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"limit\":12,\"category\":\"deaths\",\"language\":\"bs\"}"
+                        },
+                        "description": "Fetch events that happened on a specific day\nThis endpoint fetches events that happened on a specific day.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -103,7 +106,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[]}",
+                            "body": "{\"data\":[{\"year\":2021,\"category\":\"deaths\",\"description\":\"Betty White, ameri\\u010dka glumica i pjeva\\u010dica\"},{\"year\":2013,\"category\":\"deaths\",\"description\":\"James L. Avery, ameri\\u010dki glumac\"},{\"year\":1985,\"category\":\"deaths\",\"description\":\"Ricky Nelson, ameri\\u010dki muzi\\u010dar i glumac\"},{\"year\":1889,\"category\":\"deaths\",\"description\":\"Ion Creang\\u0103, rumunski knji\\u017eevnik\"},{\"year\":1877,\"category\":\"deaths\",\"description\":\"Gustave Courbet, francuski slikar\"},{\"year\":1691,\"category\":\"deaths\",\"description\":\"Robert Boyle, irski hemi\\u010dar i fizi\\u010dar\"},{\"year\":1610,\"category\":\"deaths\",\"description\":\"Ludolph van Ceulen, nizozemski matemati\\u010dar njema\\u010dkog porijekla\"},{\"year\":192,\"category\":\"deaths\",\"description\":\"Komod, rimski car\"}]}",
                             "name": ""
                         }
                     ]

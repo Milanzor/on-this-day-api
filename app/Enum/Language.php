@@ -3,22 +3,15 @@
 
 namespace App\Enum;
 
-use App\EventSource\Wikimedia\Enum\WikimediaLanguage;
-use Exception;
-
 enum Language: string
 {
     case English = 'en';
-    case Nederlands = 'nl';
-
-    public static function fromWikimediaLanguage(string|WikimediaLanguage $language): self
-    {
-        $WikimediaLanguage = $language instanceof WikimediaLanguage ? $language : WikimediaLanguage::tryFrom($language);
-
-        return match ($WikimediaLanguage) {
-            WikimediaLanguage::English => self::English,
-            WikimediaLanguage::Nederlands => self::Nederlands,
-            default => throw new Exception('Language not found'),
-        };
-    }
+    case German = 'de';
+    case French = 'fr';
+    case Swedish = 'sv';
+    case Portuguese = 'pt';
+    case Russian = 'ru';
+    case Spanish = 'es';
+    case Arabic = 'ar';
+    case Bosnian = 'bs';
 }

@@ -11,7 +11,9 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Fetch events that happened on a specific day'
-      description: ''
+      description: |-
+        Fetch events that happened on a specific day
+        This endpoint fetches events that happened on a specific day.
       authenticated: false
       custom: []
     headers:
@@ -20,19 +22,19 @@ endpoints:
     urlParameters:
       month:
         name: month
-        description: 'The month of the event'
+        description: 'The month of the events'
         required: true
         example: 12
-        type: string
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
       day:
         name: day
-        description: 'The day of the event'
+        description: 'The day of the events'
         required: true
         example: 31
-        type: string
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
@@ -59,8 +61,7 @@ endpoints:
           - births
           - deaths
           - holidays
-          - selected
-          - other
+          - regular
         exampleWasSpecified: false
         custom: []
       language:
@@ -71,19 +72,70 @@ endpoints:
         type: string
         enumValues:
           - en
+          - de
+          - fr
+          - sv
+          - pt
+          - ru
+          - es
+          - ar
+          - bs
         exampleWasSpecified: false
         custom: []
     cleanQueryParameters:
       limit: 10
       category: births
       language: en
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      limit:
+        name: limit
+        description: 'Must be at least 1. Must not be greater than 100.'
+        required: false
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      category:
+        name: category
+        description: ''
+        required: false
+        example: deaths
+        type: string
+        enumValues:
+          - births
+          - deaths
+          - holidays
+          - regular
+        exampleWasSpecified: false
+        custom: []
+      language:
+        name: language
+        description: ''
+        required: false
+        example: bs
+        type: string
+        enumValues:
+          - en
+          - de
+          - fr
+          - sv
+          - pt
+          - ru
+          - es
+          - ar
+          - bs
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      limit: 12
+      category: deaths
+      language: bs
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[]}'
+        content: '{"data":[{"year":2021,"category":"deaths","description":"Betty White, ameri\u010dka glumica i pjeva\u010dica"},{"year":2013,"category":"deaths","description":"James L. Avery, ameri\u010dki glumac"},{"year":1985,"category":"deaths","description":"Ricky Nelson, ameri\u010dki muzi\u010dar i glumac"},{"year":1889,"category":"deaths","description":"Ion Creang\u0103, rumunski knji\u017eevnik"},{"year":1877,"category":"deaths","description":"Gustave Courbet, francuski slikar"},{"year":1691,"category":"deaths","description":"Robert Boyle, irski hemi\u010dar i fizi\u010dar"},{"year":1610,"category":"deaths","description":"Ludolph van Ceulen, nizozemski matemati\u010dar njema\u010dkog porijekla"},{"year":192,"category":"deaths","description":"Komod, rimski car"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
