@@ -61,7 +61,7 @@ it('can import from Wikimedia', function () {
 
     $eventRepository->import(
         (new WikimediaEventSource(config('services.wikimedia.access_token')))
-            ->willFake()
+            ->fake()
             ->setLanguage(Language::English)
             ->setMonth(1)
             ->setDay(1)

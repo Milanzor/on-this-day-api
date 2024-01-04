@@ -15,6 +15,6 @@ interface EventSourceInterface
 
     public function collectEventDataObjects(): Collection;
 
-    public function willFake(): self;
+    public function fake(): self;
 
 }

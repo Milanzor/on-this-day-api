@@ -4,6 +4,7 @@ namespace App\EventSource\Wikimedia;
 
 use App\DataObject\EventDataObject;
 use App\Enum\Category;
+use App\Enum\Language;
 use App\Enum\Source;
 use App\EventSource\Base\AbstractEventSource;
 use App\EventSource\Base\Interface\EventSourceInterface;
@@ -103,7 +104,7 @@ class WikimediaEventSource extends AbstractEventSource implements EventSourceInt
         );
     }
 
-    public function willFake(): self
+    public function fake(): self
     {
 
         Http::fake([
@@ -160,6 +161,10 @@ class WikimediaEventSource extends AbstractEventSource implements EventSourceInt
                 ],
             ]),
         ]);
+
+        $this->setDay(12)
+            ->setMonth(12)
+            ->setLanguage(Language::English);
 
         return $this;
     }

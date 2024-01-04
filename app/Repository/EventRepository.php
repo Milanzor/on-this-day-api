@@ -5,14 +5,10 @@ namespace App\Repository;
 use App\DataObject\EventDataObject;
 use App\Enum\Category;
 use App\Enum\Language;
-use App\Enum\Source;
 use App\EventSource\Base\Interface\EventSourceInterface;
-use App\EventSource\Wikimedia\Enum\WikimediaLanguage;
 use App\EventSource\Wikimedia\WikimediaEventSource;
 use App\Models\Event;
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
-use RuntimeException;
 
 readonly class EventRepository
 {
@@ -42,6 +38,7 @@ readonly class EventRepository
 
         // Format the events into a Collection of EventDataObjects
         return $eventSource->collectEventDataObjects()
+            // And insert each one into the database
             ->each([$this, 'insertEvent']);
 
     }
@@ -73,18 +70,10 @@ readonly class EventRepository
     public function fetchEvents(
         int $month,
         int $day,
-        ?Language $language,
-        ?Category $category,
+        Language $language,
+        Category $category,
         int $limit = 10
     ): Collection {
-
-        if ($language === null) {
-            $language = Language::English;
-        }
-
-        if ($category === null) {
-            $category = Category::Regular;
-        }
 
         $query = Event::query()
             ->where('day', $day)

@@ -32,8 +32,8 @@ class EventController extends Controller
             $eventRepository->fetchEvents(
                 (int) $month,
                 (int) $day,
-                Language::tryFrom($request->query('language', 'en')),
-                Category::tryFrom($request->query('category', 'selected')),
+                Language::tryFrom($request->query('language', 'en')) ?? Language::English,
+                Category::tryFrom($request->query('category', 'selected')) ?? Category::Regular,
                 (int) $request->query('limit', 10),
             )
         );
