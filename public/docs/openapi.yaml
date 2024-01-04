@@ -68,85 +68,165 @@ paths:
                 example:
                   data:
                     -
+                      year: 2022
+                      category: deaths
+                      description: 'Bert-Åke Varg, 90, svensk skådespelare.'
+                    -
+                      year: 2022
+                      category: deaths
+                      description: 'Benedictus XVI, 95, Katolska kyrkans 265:e påve'
+                    -
                       year: 2021
                       category: deaths
-                      description: 'Betty White, američka glumica i pjevačica'
+                      description: 'Betty White, 99, amerikansk skådespelare.'
+                    -
+                      year: 2020
+                      category: deaths
+                      description: 'Dick Thornburgh, 88, amerikansk republikansk politiker, USA:s justitieminister 1988–1991.'
+                    -
+                      year: 2018
+                      category: deaths
+                      description: 'Ray Sawyer, 81, amerikansk musiker, medlem i gruppen Dr. Hook and the Medicine Show.'
+                    -
+                      year: 2015
+                      category: deaths
+                      description: 'Natalie Cole, 65, amerikansk sångare.'
+                    -
+                      year: 2014
+                      category: deaths
+                      description: 'Arthur Wellesley, 8:e hertig av Wellington, 99, brittisk adelsman, militär och företagsledare.'
+                    -
+                      year: 2014
+                      category: deaths
+                      description: 'Edward Herrmann, 71, amerikansk skådespelare.'
                     -
                       year: 2013
                       category: deaths
-                      description: 'James L. Avery, američki glumac'
+                      description: 'Sigrid Kahle, 85, svensk journalist och författare.'
                     -
-                      year: 1985
+                      year: 2013
                       category: deaths
-                      description: 'Ricky Nelson, američki muzičar i glumac'
+                      description: 'James Avery, 68, amerikansk skådespelare.'
                     -
-                      year: 1889
+                      year: 2010
                       category: deaths
-                      description: 'Ion Creangă, rumunski književnik'
+                      description: 'Per Oscarsson, 83, svensk skådespelare.'
                     -
-                      year: 1877
+                      year: 2009
                       category: deaths
-                      description: 'Gustave Courbet, francuski slikar'
+                      description: 'Rickard Fagerlund, 72, svensk idrottsledare.'
                     -
-                      year: 1691
+                      year: 2009
                       category: deaths
-                      description: 'Robert Boyle, irski hemičar i fizičar'
+                      description: 'Rashid Kawawa, 83, tanzanisk politiker, före detta premiärminister.'
                     -
-                      year: 1610
+                      year: 2008
                       category: deaths
-                      description: 'Ludolph van Ceulen, nizozemski matematičar njemačkog porijekla'
+                      description: 'Donald E. Westlake, 75, amerikansk författare.'
                     -
-                      year: 192
+                      year: 2007
                       category: deaths
-                      description: 'Komod, rimski car'
+                      description: 'Markku Peltola, 51, finländsk skådespelare och musiker.'
+                    -
+                      year: 2007
+                      category: deaths
+                      description: 'Ettore Sottsass, 90, italiensk designer.'
+                    -
+                      year: 2000
+                      category: deaths
+                      description: 'Alan Cranston, 86, amerikansk demokratisk politiker, senator (Kalifornien) 1969–1993.'
+                    -
+                      year: 1999
+                      category: deaths
+                      description: 'Elliot Richardson, 79, amerikansk republikansk politiker (hjärnblödning).'
                 properties:
                   data:
                     type: array
                     example:
                       -
+                        year: 2022
+                        category: deaths
+                        description: 'Bert-Åke Varg, 90, svensk skådespelare.'
+                      -
+                        year: 2022
+                        category: deaths
+                        description: 'Benedictus XVI, 95, Katolska kyrkans 265:e påve'
+                      -
                         year: 2021
                         category: deaths
-                        description: 'Betty White, američka glumica i pjevačica'
+                        description: 'Betty White, 99, amerikansk skådespelare.'
+                      -
+                        year: 2020
+                        category: deaths
+                        description: 'Dick Thornburgh, 88, amerikansk republikansk politiker, USA:s justitieminister 1988–1991.'
+                      -
+                        year: 2018
+                        category: deaths
+                        description: 'Ray Sawyer, 81, amerikansk musiker, medlem i gruppen Dr. Hook and the Medicine Show.'
+                      -
+                        year: 2015
+                        category: deaths
+                        description: 'Natalie Cole, 65, amerikansk sångare.'
+                      -
+                        year: 2014
+                        category: deaths
+                        description: 'Arthur Wellesley, 8:e hertig av Wellington, 99, brittisk adelsman, militär och företagsledare.'
+                      -
+                        year: 2014
+                        category: deaths
+                        description: 'Edward Herrmann, 71, amerikansk skådespelare.'
                       -
                         year: 2013
                         category: deaths
-                        description: 'James L. Avery, američki glumac'
+                        description: 'Sigrid Kahle, 85, svensk journalist och författare.'
                       -
-                        year: 1985
+                        year: 2013
                         category: deaths
-                        description: 'Ricky Nelson, američki muzičar i glumac'
+                        description: 'James Avery, 68, amerikansk skådespelare.'
                       -
-                        year: 1889
+                        year: 2010
                         category: deaths
-                        description: 'Ion Creangă, rumunski književnik'
+                        description: 'Per Oscarsson, 83, svensk skådespelare.'
                       -
-                        year: 1877
+                        year: 2009
                         category: deaths
-                        description: 'Gustave Courbet, francuski slikar'
+                        description: 'Rickard Fagerlund, 72, svensk idrottsledare.'
                       -
-                        year: 1691
+                        year: 2009
                         category: deaths
-                        description: 'Robert Boyle, irski hemičar i fizičar'
+                        description: 'Rashid Kawawa, 83, tanzanisk politiker, före detta premiärminister.'
                       -
-                        year: 1610
+                        year: 2008
                         category: deaths
-                        description: 'Ludolph van Ceulen, nizozemski matematičar njemačkog porijekla'
+                        description: 'Donald E. Westlake, 75, amerikansk författare.'
                       -
-                        year: 192
+                        year: 2007
                         category: deaths
-                        description: 'Komod, rimski car'
+                        description: 'Markku Peltola, 51, finländsk skådespelare och musiker.'
+                      -
+                        year: 2007
+                        category: deaths
+                        description: 'Ettore Sottsass, 90, italiensk designer.'
+                      -
+                        year: 2000
+                        category: deaths
+                        description: 'Alan Cranston, 86, amerikansk demokratisk politiker, senator (Kalifornien) 1969–1993.'
+                      -
+                        year: 1999
+                        category: deaths
+                        description: 'Elliot Richardson, 79, amerikansk republikansk politiker (hjärnblödning).'
                     items:
                       type: object
                       properties:
                         year:
                           type: integer
-                          example: 2021
+                          example: 2022
                         category:
                           type: string
                           example: deaths
                         description:
                           type: string
-                          example: 'Betty White, američka glumica i pjevačica'
+                          example: 'Bert-Åke Varg, 90, svensk skådespelare.'
       tags:
         - Endpoints
       requestBody:
@@ -159,7 +239,7 @@ paths:
                 limit:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 100.'
-                  example: 12
+                  example: 18
                 category:
                   type: string
                   description: ''
@@ -172,7 +252,7 @@ paths:
                 language:
                   type: string
                   description: ''
-                  example: bs
+                  example: sv
                   enum:
                     - en
                     - de

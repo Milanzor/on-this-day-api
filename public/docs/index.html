@@ -607,7 +607,7 @@ This endpoint fetches events that happened on a specific day.</p>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        12
+                        18
                     </div>
                 </div>
             </div>
@@ -655,7 +655,7 @@ This endpoint fetches events that happened on a specific day.</p>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        bs
+                        sv
                     </div>
                 </div>
             </div>
@@ -854,9 +854,9 @@ This endpoint fetches events that happened on a specific day.</p>
                                      id="json-body-GETapi-v1-events-that-happened-on--month---day-"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "limit": 12,
+    "limit": 18,
     "category": "deaths",
-    "language": "bs"
+    "language": "sv"
 }</div>
                             </div>
                                             </div>
@@ -954,9 +954,9 @@ You can check the Dev Tools console for debugging information.</p>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"limit\": 12,
+    \"limit\": 18,
     \"category\": \"deaths\",
-    \"language\": \"bs\"
+    \"language\": \"sv\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -983,9 +983,9 @@ const headers = {
 };
 
 let body = {
-    "limit": 12,
+    "limit": 18,
     "category": "deaths",
-    "language": "bs"
+    "language": "sv"
 };
 
 fetch(url, {
@@ -1014,9 +1014,9 @@ $response = $client-&gt;get(
             'language' =&gt; 'en',
         ],
         'json' =&gt; [
-            'limit' =&gt; 12,
+            'limit' =&gt; 18,
             'category' =&gt; 'deaths',
-            'language' =&gt; 'bs',
+            'language' =&gt; 'sv',
         ],
     ]
 );
@@ -1033,9 +1033,9 @@ import json
 
 url = 'https://on-this-day-api.helopsokken.nl/api/v1/events/that-happened-on/12/31'
 payload = {
-    "limit": 12,
+    "limit": 18,
     "category": "deaths",
-    "language": "bs"
+    "language": "sv"
 }
 params = {
   'limit': '10',
@@ -1117,44 +1117,94 @@ response.json()</code></pre>                                        </div>
                                                        class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
     &quot;data&quot;: [
         {
+            &quot;year&quot;: 2022,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Bert-&Aring;ke Varg, 90, svensk sk&aring;despelare.&quot;
+        },
+        {
+            &quot;year&quot;: 2022,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Benedictus XVI, 95, Katolska kyrkans 265:e p&aring;ve&quot;
+        },
+        {
             &quot;year&quot;: 2021,
             &quot;category&quot;: &quot;deaths&quot;,
-            &quot;description&quot;: &quot;Betty White, američka glumica i pjevačica&quot;
+            &quot;description&quot;: &quot;Betty White, 99, amerikansk sk&aring;despelare.&quot;
+        },
+        {
+            &quot;year&quot;: 2020,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Dick Thornburgh, 88, amerikansk republikansk politiker, USA:s justitieminister 1988&ndash;1991.&quot;
+        },
+        {
+            &quot;year&quot;: 2018,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Ray Sawyer, 81, amerikansk musiker, medlem i gruppen Dr. Hook and the Medicine Show.&quot;
+        },
+        {
+            &quot;year&quot;: 2015,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Natalie Cole, 65, amerikansk s&aring;ngare.&quot;
+        },
+        {
+            &quot;year&quot;: 2014,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Arthur Wellesley, 8:e hertig av Wellington, 99, brittisk adelsman, milit&auml;r och f&ouml;retagsledare.&quot;
+        },
+        {
+            &quot;year&quot;: 2014,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Edward Herrmann, 71, amerikansk sk&aring;despelare.&quot;
         },
         {
             &quot;year&quot;: 2013,
             &quot;category&quot;: &quot;deaths&quot;,
-            &quot;description&quot;: &quot;James L. Avery, američki glumac&quot;
+            &quot;description&quot;: &quot;Sigrid Kahle, 85, svensk journalist och f&ouml;rfattare.&quot;
         },
         {
-            &quot;year&quot;: 1985,
+            &quot;year&quot;: 2013,
             &quot;category&quot;: &quot;deaths&quot;,
-            &quot;description&quot;: &quot;Ricky Nelson, američki muzičar i glumac&quot;
+            &quot;description&quot;: &quot;James Avery, 68, amerikansk sk&aring;despelare.&quot;
         },
         {
-            &quot;year&quot;: 1889,
+            &quot;year&quot;: 2010,
             &quot;category&quot;: &quot;deaths&quot;,
-            &quot;description&quot;: &quot;Ion Creangă, rumunski književnik&quot;
+            &quot;description&quot;: &quot;Per Oscarsson, 83, svensk sk&aring;despelare.&quot;
         },
         {
-            &quot;year&quot;: 1877,
+            &quot;year&quot;: 2009,
             &quot;category&quot;: &quot;deaths&quot;,
-            &quot;description&quot;: &quot;Gustave Courbet, francuski slikar&quot;
+            &quot;description&quot;: &quot;Rickard Fagerlund, 72, svensk idrottsledare.&quot;
         },
         {
-            &quot;year&quot;: 1691,
+            &quot;year&quot;: 2009,
             &quot;category&quot;: &quot;deaths&quot;,
-            &quot;description&quot;: &quot;Robert Boyle, irski hemičar i fizičar&quot;
+            &quot;description&quot;: &quot;Rashid Kawawa, 83, tanzanisk politiker, f&ouml;re detta premi&auml;rminister.&quot;
         },
         {
-            &quot;year&quot;: 1610,
+            &quot;year&quot;: 2008,
             &quot;category&quot;: &quot;deaths&quot;,
-            &quot;description&quot;: &quot;Ludolph van Ceulen, nizozemski matematičar njemačkog porijekla&quot;
+            &quot;description&quot;: &quot;Donald E. Westlake, 75, amerikansk f&ouml;rfattare.&quot;
         },
         {
-            &quot;year&quot;: 192,
+            &quot;year&quot;: 2007,
             &quot;category&quot;: &quot;deaths&quot;,
-            &quot;description&quot;: &quot;Komod, rimski car&quot;
+            &quot;description&quot;: &quot;Markku Peltola, 51, finl&auml;ndsk sk&aring;despelare och musiker.&quot;
+        },
+        {
+            &quot;year&quot;: 2007,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Ettore Sottsass, 90, italiensk designer.&quot;
+        },
+        {
+            &quot;year&quot;: 2000,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Alan Cranston, 86, amerikansk demokratisk politiker, senator (Kalifornien) 1969&ndash;1993.&quot;
+        },
+        {
+            &quot;year&quot;: 1999,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Elliot Richardson, 79, amerikansk republikansk politiker (hj&auml;rnbl&ouml;dning).&quot;
         }
     ]
 }</code></pre>

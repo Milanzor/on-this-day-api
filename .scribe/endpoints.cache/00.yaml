@@ -93,7 +93,7 @@ endpoints:
         name: limit
         description: 'Must be at least 1. Must not be greater than 100.'
         required: false
-        example: 12
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -115,7 +115,7 @@ endpoints:
         name: language
         description: ''
         required: false
-        example: bs
+        example: sv
         type: string
         enumValues:
           - en
@@ -130,14 +130,14 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      limit: 12
+      limit: 18
       category: deaths
-      language: bs
+      language: sv
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[{"year":2021,"category":"deaths","description":"Betty White, ameri\u010dka glumica i pjeva\u010dica"},{"year":2013,"category":"deaths","description":"James L. Avery, ameri\u010dki glumac"},{"year":1985,"category":"deaths","description":"Ricky Nelson, ameri\u010dki muzi\u010dar i glumac"},{"year":1889,"category":"deaths","description":"Ion Creang\u0103, rumunski knji\u017eevnik"},{"year":1877,"category":"deaths","description":"Gustave Courbet, francuski slikar"},{"year":1691,"category":"deaths","description":"Robert Boyle, irski hemi\u010dar i fizi\u010dar"},{"year":1610,"category":"deaths","description":"Ludolph van Ceulen, nizozemski matemati\u010dar njema\u010dkog porijekla"},{"year":192,"category":"deaths","description":"Komod, rimski car"}]}'
+        content: '{"data":[{"year":2022,"category":"deaths","description":"Bert-\u00c5ke Varg, 90, svensk sk\u00e5despelare."},{"year":2022,"category":"deaths","description":"Benedictus XVI, 95, Katolska kyrkans 265:e p\u00e5ve"},{"year":2021,"category":"deaths","description":"Betty White, 99, amerikansk sk\u00e5despelare."},{"year":2020,"category":"deaths","description":"Dick Thornburgh, 88, amerikansk republikansk politiker, USA:s justitieminister 1988\u20131991."},{"year":2018,"category":"deaths","description":"Ray Sawyer, 81, amerikansk musiker, medlem i gruppen Dr. Hook and the Medicine Show."},{"year":2015,"category":"deaths","description":"Natalie Cole, 65, amerikansk s\u00e5ngare."},{"year":2014,"category":"deaths","description":"Arthur Wellesley, 8:e hertig av Wellington, 99, brittisk adelsman, milit\u00e4r och f\u00f6retagsledare."},{"year":2014,"category":"deaths","description":"Edward Herrmann, 71, amerikansk sk\u00e5despelare."},{"year":2013,"category":"deaths","description":"Sigrid Kahle, 85, svensk journalist och f\u00f6rfattare."},{"year":2013,"category":"deaths","description":"James Avery, 68, amerikansk sk\u00e5despelare."},{"year":2010,"category":"deaths","description":"Per Oscarsson, 83, svensk sk\u00e5despelare."},{"year":2009,"category":"deaths","description":"Rickard Fagerlund, 72, svensk idrottsledare."},{"year":2009,"category":"deaths","description":"Rashid Kawawa, 83, tanzanisk politiker, f\u00f6re detta premi\u00e4rminister."},{"year":2008,"category":"deaths","description":"Donald E. Westlake, 75, amerikansk f\u00f6rfattare."},{"year":2007,"category":"deaths","description":"Markku Peltola, 51, finl\u00e4ndsk sk\u00e5despelare och musiker."},{"year":2007,"category":"deaths","description":"Ettore Sottsass, 90, italiensk designer."},{"year":2000,"category":"deaths","description":"Alan Cranston, 86, amerikansk demokratisk politiker, senator (Kalifornien) 1969\u20131993."},{"year":1999,"category":"deaths","description":"Elliot Richardson, 79, amerikansk republikansk politiker (hj\u00e4rnbl\u00f6dning)."}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
