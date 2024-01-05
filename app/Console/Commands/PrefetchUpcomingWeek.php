@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Enum\Language;
+use App\Enum\Source;
+use App\Models\Event;
 use App\Repository\EventRepository;
 use Illuminate\Console\Command;
 
@@ -31,6 +33,16 @@ class PrefetchUpcomingWeek extends Command
         $now = now();
         $nowPlusOneWeek = now()->addWeek();
         while ($now->addDay()->isBefore($nowPlusOneWeek)) {
+
+            if (
+                Event::query()
+                    ->where('month', $now->month)
+                    ->where('day', $now->day)
+                    ->whereNotIn('source', [Source::Test, Source::Seed, Source::Manual])
+                    ->exists()
+            ) {
+                continue;
+            }
 
             logger()?->info("Prefetching events for {$now->month}/{$now->day}");
 

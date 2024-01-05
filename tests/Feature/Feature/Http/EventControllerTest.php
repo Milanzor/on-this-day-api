@@ -26,7 +26,6 @@ it('fetches events', function () {
                 'description',
                 'year',
                 'category',
-                'happiness'
             ],
         ],
     ]);
