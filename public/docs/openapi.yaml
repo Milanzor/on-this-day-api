@@ -5,59 +5,14 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'https://on-this-day-api.helopsokken.nl'
+    url: 'http://localhost'
 paths:
   '/api/v1/events/that-happened-on/{month}/{day}':
     get:
       summary: 'Fetch events that happened on a specific day'
       operationId: fetchEventsThatHappenedOnASpecificDay
       description: "Fetch events that happened on a specific day\nThis endpoint fetches events that happened on a specific day."
-      parameters:
-        -
-          in: query
-          name: limit
-          description: 'The limit of the events'
-          example: 10
-          required: false
-          schema:
-            type: integer
-            description: 'The limit of the events'
-            example: 10
-        -
-          in: query
-          name: category
-          description: 'The category of the event'
-          example: births
-          required: false
-          schema:
-            type: string
-            description: 'The category of the event'
-            example: births
-            enum:
-              - births
-              - deaths
-              - holidays
-              - regular
-        -
-          in: query
-          name: language
-          description: 'The language of the event'
-          example: en
-          required: false
-          schema:
-            type: string
-            description: 'The language of the event'
-            example: en
-            enum:
-              - en
-              - de
-              - fr
-              - sv
-              - pt
-              - ru
-              - es
-              - ar
-              - bs
+      parameters: []
       responses:
         200:
           description: ''
@@ -68,165 +23,221 @@ paths:
                 example:
                   data:
                     -
-                      year: 2022
-                      category: deaths
-                      description: 'Bert-Åke Varg, 90, svensk skådespelare.'
-                    -
-                      year: 2022
-                      category: deaths
-                      description: 'Benedictus XVI, 95, Katolska kyrkans 265:e påve'
-                    -
-                      year: 2021
-                      category: deaths
-                      description: 'Betty White, 99, amerikansk skådespelare.'
-                    -
-                      year: 2020
-                      category: deaths
-                      description: 'Dick Thornburgh, 88, amerikansk republikansk politiker, USA:s justitieminister 1988–1991.'
-                    -
-                      year: 2018
-                      category: deaths
-                      description: 'Ray Sawyer, 81, amerikansk musiker, medlem i gruppen Dr. Hook and the Medicine Show.'
-                    -
-                      year: 2015
-                      category: deaths
-                      description: 'Natalie Cole, 65, amerikansk sångare.'
-                    -
-                      year: 2014
-                      category: deaths
-                      description: 'Arthur Wellesley, 8:e hertig av Wellington, 99, brittisk adelsman, militär och företagsledare.'
-                    -
-                      year: 2014
-                      category: deaths
-                      description: 'Edward Herrmann, 71, amerikansk skådespelare.'
-                    -
-                      year: 2013
-                      category: deaths
-                      description: 'Sigrid Kahle, 85, svensk journalist och författare.'
-                    -
-                      year: 2013
-                      category: deaths
-                      description: 'James Avery, 68, amerikansk skådespelare.'
-                    -
-                      year: 2010
-                      category: deaths
-                      description: 'Per Oscarsson, 83, svensk skådespelare.'
-                    -
-                      year: 2009
-                      category: deaths
-                      description: 'Rickard Fagerlund, 72, svensk idrottsledare.'
-                    -
-                      year: 2009
-                      category: deaths
-                      description: 'Rashid Kawawa, 83, tanzanisk politiker, före detta premiärminister.'
-                    -
-                      year: 2008
-                      category: deaths
-                      description: 'Donald E. Westlake, 75, amerikansk författare.'
-                    -
-                      year: 2007
-                      category: deaths
-                      description: 'Markku Peltola, 51, finländsk skådespelare och musiker.'
-                    -
-                      year: 2007
-                      category: deaths
-                      description: 'Ettore Sottsass, 90, italiensk designer.'
-                    -
                       year: 2000
-                      category: deaths
-                      description: 'Alan Cranston, 86, amerikansk demokratisk politiker, senator (Kalifornien) 1969–1993.'
+                      category: births
+                      description: 'Logan Sargeant, amerikansk racerförare.'
                     -
-                      year: 1999
-                      category: deaths
-                      description: 'Elliot Richardson, 79, amerikansk republikansk politiker (hjärnblödning).'
+                      year: 1992
+                      category: births
+                      description: 'Tylor Spink, kanadensisk ishockeyspelare.'
+                    -
+                      year: 1992
+                      category: births
+                      description: 'Tyson Spink, kanadensisk ishockeyspelare.'
+                    -
+                      year: 1991
+                      category: births
+                      description: 'Dennis Everberg, svensk ishockeyspelare.'
+                    -
+                      year: 1982
+                      category: births
+                      description: 'Kikkan Randall, amerikansk längdåkare.'
+                    -
+                      year: 1979
+                      category: births
+                      description: 'Bob Bryar, amerikansk trummis i bandet My Chemical Romance.'
+                    -
+                      year: 1977
+                      category: births
+                      description: 'Donald Trump, Jr., amerikansk affärsman.'
+                    -
+                      year: 1977
+                      category: births
+                      description: 'Psy, sydkoreansk sångare, rappare och låtskrivare.'
+                    -
+                      year: 1974
+                      category: births
+                      description: 'Mario Aerts, belgisk tävlingscyklist.'
+                    -
+                      year: 1974
+                      category: births
+                      description: 'Tony Kanaan, brasiliansk racerförare.'
+                    -
+                      year: 1971
+                      category: births
+                      description: 'Heath Shuler, amerikansk demokratisk politiker, kongressledamot 2007–2013.'
+                    -
+                      year: 1966
+                      category: births
+                      description: 'Lars Yngve Johansson, svensk manusförfattare, kompositör och musiker.'
+                    -
+                      year: 1962
+                      category: births
+                      description: 'Jeff Flake, amerikansk republikansk politiker, senator (Arizona) 2013–2019.'
+                    -
+                      year: 1959
+                      category: births
+                      description: 'Val Kilmer, amerikansk skådespelare.'
+                    -
+                      year: 1958
+                      category: births
+                      description: 'Peter Hultqvist, svensk socialdemokratisk försvarsminister.'
+                    -
+                      year: 1958
+                      category: births
+                      description: 'Bebe Neuwirth, amerikansk skådespelare och dansares.'
+                    -
+                      year: 1958
+                      category: births
+                      description: 'Gunilla Persson, svensk-amerikansk fotomodell.'
+                    -
+                      year: 1954
+                      category: births
+                      description: 'Alex Salmond, brittisk politiker, ledare för Scottish National Party 1990–2000 och 2004–2014.'
+                    -
+                      year: 1953
+                      category: births
+                      description: 'Jane Badler, amerikansk skådespelare.'
+                    -
+                      year: 1953
+                      category: births
+                      description: 'James Remar, amerikansk skådespelare.'
+                    -
+                      year: 1951
+                      category: births
+                      description: 'Bárbara Carrera, nicaraguansk skådespelare.'
+                    -
+                      year: 1951
+                      category: births
+                      description: 'Tom Hamilton, amerikansk musiker, basist i Aerosmith.'
+                    -
+                      year: 1949
+                      category: births
+                      description: 'Tom Kite, amerikansk golfspelare.'
+                    -
+                      year: 1948
+                      category: births
+                      description: 'Donna Summer, amerikansk sångare.'
+                    -
+                      year: 1947
+                      category: births
+                      description: 'Burton Cummings, kanadensisk rocksångare.'
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        year: 2022
-                        category: deaths
-                        description: 'Bert-Åke Varg, 90, svensk skådespelare.'
-                      -
-                        year: 2022
-                        category: deaths
-                        description: 'Benedictus XVI, 95, Katolska kyrkans 265:e påve'
-                      -
-                        year: 2021
-                        category: deaths
-                        description: 'Betty White, 99, amerikansk skådespelare.'
-                      -
-                        year: 2020
-                        category: deaths
-                        description: 'Dick Thornburgh, 88, amerikansk republikansk politiker, USA:s justitieminister 1988–1991.'
-                      -
-                        year: 2018
-                        category: deaths
-                        description: 'Ray Sawyer, 81, amerikansk musiker, medlem i gruppen Dr. Hook and the Medicine Show.'
-                      -
-                        year: 2015
-                        category: deaths
-                        description: 'Natalie Cole, 65, amerikansk sångare.'
-                      -
-                        year: 2014
-                        category: deaths
-                        description: 'Arthur Wellesley, 8:e hertig av Wellington, 99, brittisk adelsman, militär och företagsledare.'
-                      -
-                        year: 2014
-                        category: deaths
-                        description: 'Edward Herrmann, 71, amerikansk skådespelare.'
-                      -
-                        year: 2013
-                        category: deaths
-                        description: 'Sigrid Kahle, 85, svensk journalist och författare.'
-                      -
-                        year: 2013
-                        category: deaths
-                        description: 'James Avery, 68, amerikansk skådespelare.'
-                      -
-                        year: 2010
-                        category: deaths
-                        description: 'Per Oscarsson, 83, svensk skådespelare.'
-                      -
-                        year: 2009
-                        category: deaths
-                        description: 'Rickard Fagerlund, 72, svensk idrottsledare.'
-                      -
-                        year: 2009
-                        category: deaths
-                        description: 'Rashid Kawawa, 83, tanzanisk politiker, före detta premiärminister.'
-                      -
-                        year: 2008
-                        category: deaths
-                        description: 'Donald E. Westlake, 75, amerikansk författare.'
-                      -
-                        year: 2007
-                        category: deaths
-                        description: 'Markku Peltola, 51, finländsk skådespelare och musiker.'
-                      -
-                        year: 2007
-                        category: deaths
-                        description: 'Ettore Sottsass, 90, italiensk designer.'
-                      -
                         year: 2000
-                        category: deaths
-                        description: 'Alan Cranston, 86, amerikansk demokratisk politiker, senator (Kalifornien) 1969–1993.'
+                        category: births
+                        description: 'Logan Sargeant, amerikansk racerförare.'
                       -
-                        year: 1999
-                        category: deaths
-                        description: 'Elliot Richardson, 79, amerikansk republikansk politiker (hjärnblödning).'
+                        year: 1992
+                        category: births
+                        description: 'Tylor Spink, kanadensisk ishockeyspelare.'
+                      -
+                        year: 1992
+                        category: births
+                        description: 'Tyson Spink, kanadensisk ishockeyspelare.'
+                      -
+                        year: 1991
+                        category: births
+                        description: 'Dennis Everberg, svensk ishockeyspelare.'
+                      -
+                        year: 1982
+                        category: births
+                        description: 'Kikkan Randall, amerikansk längdåkare.'
+                      -
+                        year: 1979
+                        category: births
+                        description: 'Bob Bryar, amerikansk trummis i bandet My Chemical Romance.'
+                      -
+                        year: 1977
+                        category: births
+                        description: 'Donald Trump, Jr., amerikansk affärsman.'
+                      -
+                        year: 1977
+                        category: births
+                        description: 'Psy, sydkoreansk sångare, rappare och låtskrivare.'
+                      -
+                        year: 1974
+                        category: births
+                        description: 'Mario Aerts, belgisk tävlingscyklist.'
+                      -
+                        year: 1974
+                        category: births
+                        description: 'Tony Kanaan, brasiliansk racerförare.'
+                      -
+                        year: 1971
+                        category: births
+                        description: 'Heath Shuler, amerikansk demokratisk politiker, kongressledamot 2007–2013.'
+                      -
+                        year: 1966
+                        category: births
+                        description: 'Lars Yngve Johansson, svensk manusförfattare, kompositör och musiker.'
+                      -
+                        year: 1962
+                        category: births
+                        description: 'Jeff Flake, amerikansk republikansk politiker, senator (Arizona) 2013–2019.'
+                      -
+                        year: 1959
+                        category: births
+                        description: 'Val Kilmer, amerikansk skådespelare.'
+                      -
+                        year: 1958
+                        category: births
+                        description: 'Peter Hultqvist, svensk socialdemokratisk försvarsminister.'
+                      -
+                        year: 1958
+                        category: births
+                        description: 'Bebe Neuwirth, amerikansk skådespelare och dansares.'
+                      -
+                        year: 1958
+                        category: births
+                        description: 'Gunilla Persson, svensk-amerikansk fotomodell.'
+                      -
+                        year: 1954
+                        category: births
+                        description: 'Alex Salmond, brittisk politiker, ledare för Scottish National Party 1990–2000 och 2004–2014.'
+                      -
+                        year: 1953
+                        category: births
+                        description: 'Jane Badler, amerikansk skådespelare.'
+                      -
+                        year: 1953
+                        category: births
+                        description: 'James Remar, amerikansk skådespelare.'
+                      -
+                        year: 1951
+                        category: births
+                        description: 'Bárbara Carrera, nicaraguansk skådespelare.'
+                      -
+                        year: 1951
+                        category: births
+                        description: 'Tom Hamilton, amerikansk musiker, basist i Aerosmith.'
+                      -
+                        year: 1949
+                        category: births
+                        description: 'Tom Kite, amerikansk golfspelare.'
+                      -
+                        year: 1948
+                        category: births
+                        description: 'Donna Summer, amerikansk sångare.'
+                      -
+                        year: 1947
+                        category: births
+                        description: 'Burton Cummings, kanadensisk rocksångare.'
                     items:
                       type: object
                       properties:
                         year:
                           type: integer
-                          example: 2022
+                          example: 2000
                         category:
                           type: string
-                          example: deaths
+                          example: births
                         description:
                           type: string
-                          example: 'Bert-Åke Varg, 90, svensk skådespelare.'
+                          example: 'Logan Sargeant, amerikansk racerförare.'
       tags:
         - Endpoints
       requestBody:
@@ -239,11 +250,11 @@ paths:
                 limit:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 100.'
-                  example: 18
+                  example: 25
                 category:
                   type: string
                   description: ''
-                  example: deaths
+                  example: births
                   enum:
                     - births
                     - deaths

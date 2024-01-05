@@ -24,9 +24,6 @@ ENDPOINT
     )]
     #[UrlParam(name: 'month', type: 'integer', description: 'The month of the events', example: 12)]
     #[UrlParam(name: 'day', type: 'integer', description: 'The day of the events', example: 31)]
-    #[QueryParam(name: 'limit', type: 'integer', description: 'The limit of the events', required: false, example: 10)]
-    #[QueryParam(name: 'category', description: 'The category of the event', required: false, example: 'births', enum: Category::class)]
-    #[QueryParam(name: 'language', description: 'The language of the event', required: false, example: 'en', enum: Language::class)]
     public function that_happened_on(
         EventsThatHappenedOnRequest $request,
         EventRepository $eventRepository,
@@ -35,7 +32,6 @@ ENDPOINT
     ): AnonymousResourceCollection
     {
 
-        $request->validated();
 
         return EventResource::collection(
             $eventRepository->fetchEvents(

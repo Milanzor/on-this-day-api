@@ -43,57 +43,14 @@ endpoints:
     cleanUrlParameters:
       month: 12
       day: 31
-    queryParameters:
-      limit:
-        name: limit
-        description: 'The limit of the events'
-        required: false
-        example: 10
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      category:
-        name: category
-        description: 'The category of the event'
-        required: false
-        example: births
-        type: string
-        enumValues:
-          - births
-          - deaths
-          - holidays
-          - regular
-        exampleWasSpecified: false
-        custom: []
-      language:
-        name: language
-        description: 'The language of the event'
-        required: false
-        example: en
-        type: string
-        enumValues:
-          - en
-          - de
-          - fr
-          - sv
-          - pt
-          - ru
-          - es
-          - ar
-          - bs
-        exampleWasSpecified: false
-        custom: []
-    cleanQueryParameters:
-      limit: 10
-      category: births
-      language: en
+    queryParameters: []
+    cleanQueryParameters: []
     bodyParameters:
       limit:
         name: limit
         description: 'Must be at least 1. Must not be greater than 100.'
         required: false
-        example: 18
+        example: 25
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -102,7 +59,7 @@ endpoints:
         name: category
         description: ''
         required: false
-        example: deaths
+        example: births
         type: string
         enumValues:
           - births
@@ -130,14 +87,14 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      limit: 18
-      category: deaths
+      limit: 25
+      category: births
       language: sv
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[{"year":2022,"category":"deaths","description":"Bert-\u00c5ke Varg, 90, svensk sk\u00e5despelare."},{"year":2022,"category":"deaths","description":"Benedictus XVI, 95, Katolska kyrkans 265:e p\u00e5ve"},{"year":2021,"category":"deaths","description":"Betty White, 99, amerikansk sk\u00e5despelare."},{"year":2020,"category":"deaths","description":"Dick Thornburgh, 88, amerikansk republikansk politiker, USA:s justitieminister 1988\u20131991."},{"year":2018,"category":"deaths","description":"Ray Sawyer, 81, amerikansk musiker, medlem i gruppen Dr. Hook and the Medicine Show."},{"year":2015,"category":"deaths","description":"Natalie Cole, 65, amerikansk s\u00e5ngare."},{"year":2014,"category":"deaths","description":"Arthur Wellesley, 8:e hertig av Wellington, 99, brittisk adelsman, milit\u00e4r och f\u00f6retagsledare."},{"year":2014,"category":"deaths","description":"Edward Herrmann, 71, amerikansk sk\u00e5despelare."},{"year":2013,"category":"deaths","description":"Sigrid Kahle, 85, svensk journalist och f\u00f6rfattare."},{"year":2013,"category":"deaths","description":"James Avery, 68, amerikansk sk\u00e5despelare."},{"year":2010,"category":"deaths","description":"Per Oscarsson, 83, svensk sk\u00e5despelare."},{"year":2009,"category":"deaths","description":"Rickard Fagerlund, 72, svensk idrottsledare."},{"year":2009,"category":"deaths","description":"Rashid Kawawa, 83, tanzanisk politiker, f\u00f6re detta premi\u00e4rminister."},{"year":2008,"category":"deaths","description":"Donald E. Westlake, 75, amerikansk f\u00f6rfattare."},{"year":2007,"category":"deaths","description":"Markku Peltola, 51, finl\u00e4ndsk sk\u00e5despelare och musiker."},{"year":2007,"category":"deaths","description":"Ettore Sottsass, 90, italiensk designer."},{"year":2000,"category":"deaths","description":"Alan Cranston, 86, amerikansk demokratisk politiker, senator (Kalifornien) 1969\u20131993."},{"year":1999,"category":"deaths","description":"Elliot Richardson, 79, amerikansk republikansk politiker (hj\u00e4rnbl\u00f6dning)."}]}'
+        content: '{"data":[{"year":2000,"category":"births","description":"Logan Sargeant, amerikansk racerf\u00f6rare."},{"year":1992,"category":"births","description":"Tylor Spink, kanadensisk ishockeyspelare."},{"year":1992,"category":"births","description":"Tyson Spink, kanadensisk ishockeyspelare."},{"year":1991,"category":"births","description":"Dennis Everberg, svensk ishockeyspelare."},{"year":1982,"category":"births","description":"Kikkan Randall, amerikansk l\u00e4ngd\u00e5kare."},{"year":1979,"category":"births","description":"Bob Bryar, amerikansk trummis i bandet My Chemical Romance."},{"year":1977,"category":"births","description":"Donald Trump, Jr., amerikansk aff\u00e4rsman."},{"year":1977,"category":"births","description":"Psy, sydkoreansk s\u00e5ngare, rappare och l\u00e5tskrivare."},{"year":1974,"category":"births","description":"Mario Aerts, belgisk t\u00e4vlingscyklist."},{"year":1974,"category":"births","description":"Tony Kanaan, brasiliansk racerf\u00f6rare."},{"year":1971,"category":"births","description":"Heath Shuler, amerikansk demokratisk politiker, kongressledamot 2007\u20132013."},{"year":1966,"category":"births","description":"Lars Yngve Johansson, svensk manusf\u00f6rfattare, komposit\u00f6r och musiker."},{"year":1962,"category":"births","description":"Jeff Flake, amerikansk republikansk politiker, senator (Arizona) 2013\u20132019."},{"year":1959,"category":"births","description":"Val Kilmer, amerikansk sk\u00e5despelare."},{"year":1958,"category":"births","description":"Peter Hultqvist, svensk socialdemokratisk f\u00f6rsvarsminister."},{"year":1958,"category":"births","description":"Bebe Neuwirth, amerikansk sk\u00e5despelare och dansares."},{"year":1958,"category":"births","description":"Gunilla Persson, svensk-amerikansk fotomodell."},{"year":1954,"category":"births","description":"Alex Salmond, brittisk politiker, ledare f\u00f6r Scottish National Party 1990\u20132000 och 2004\u20132014."},{"year":1953,"category":"births","description":"Jane Badler, amerikansk sk\u00e5despelare."},{"year":1953,"category":"births","description":"James Remar, amerikansk sk\u00e5despelare."},{"year":1951,"category":"births","description":"B\u00e1rbara Carrera, nicaraguansk sk\u00e5despelare."},{"year":1951,"category":"births","description":"Tom Hamilton, amerikansk musiker, basist i Aerosmith."},{"year":1949,"category":"births","description":"Tom Kite, amerikansk golfspelare."},{"year":1948,"category":"births","description":"Donna Summer, amerikansk s\u00e5ngare."},{"year":1947,"category":"births","description":"Burton Cummings, kanadensisk rocks\u00e5ngare."}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

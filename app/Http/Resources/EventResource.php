@@ -26,7 +26,6 @@ class EventResource extends JsonResource
             'year' => $this->year,
             'category' => $this->category,
             'description' => $this->description,
-            'happiness' => $this->happiness,
         ];
     }
 }
