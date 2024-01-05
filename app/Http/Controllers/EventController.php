@@ -42,7 +42,7 @@ ENDPOINT
                 $month,
                 $day,
                 Language::tryFrom($request->validated('language', 'en')) ?? Language::English,
-                Category::tryFrom($request->validated('category', 'selected')),
+                Category::tryFrom($request->validated('category', 'selected')) ?? Category::Regular,
                 (int) $request->validated('limit', 10),
             )
         );
