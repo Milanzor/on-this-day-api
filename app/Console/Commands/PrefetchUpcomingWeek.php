@@ -31,6 +31,9 @@ class PrefetchUpcomingWeek extends Command
         $now = now();
         $nowPlusOneWeek = now()->addWeek();
         while ($now->addDay()->isBefore($nowPlusOneWeek)) {
+
+            logger()?->info("Prefetching events for {$now->month}/{$now->day}");
+
             $eventRepository->importFromAllEventSources(Language::English, $now->month, $now->day);
         }
 
