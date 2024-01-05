@@ -7,9 +7,7 @@ use App\Enum\Language;
 use App\Http\Requests\EventsThatHappenedOnRequest;
 use App\Http\Resources\EventResource;
 use App\Repository\EventRepository;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Validation\Rules\Enum;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\QueryParam;
 use Knuckles\Scribe\Attributes\UrlParam;
@@ -44,7 +42,7 @@ ENDPOINT
                 $month,
                 $day,
                 Language::tryFrom($request->validated('language', 'en')) ?? Language::English,
-                Category::tryFrom($request->validated('category', 'selected')) ?? Category::Regular,
+                Category::tryFrom($request->validated('category', 'selected')),
                 (int) $request->validated('limit', 10),
             )
         );

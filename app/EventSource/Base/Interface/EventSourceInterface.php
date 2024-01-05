@@ -9,12 +9,12 @@ use Illuminate\Support\Collection;
 interface EventSourceInterface
 {
 
-    public function fetch(): void;
+    public function fetch(): self;
 
     public function transformToEventDataObject(...$params): EventDataObject;
 
     public function collectEventDataObjects(): Collection;
 
-    public function fake(): self;
+    public static function fake(?array ...$constructor_params): self;
 
 }

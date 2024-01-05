@@ -71,7 +71,7 @@ readonly class EventRepository
         int $month,
         int $day,
         Language $language,
-        Category $category,
+        ?Category $category,
         int $limit = 10
     ): Collection {
 
@@ -79,7 +79,7 @@ readonly class EventRepository
             ->where('day', $day)
             ->where('month', $month)
             ->where('language', $language)
-            ->where('category', $category)
+            ->when($category, fn($query) => $query->where('category', $category))
             ->orderBy('year', 'DESC');
 
         if (!$query->limit(1)->exists()) {

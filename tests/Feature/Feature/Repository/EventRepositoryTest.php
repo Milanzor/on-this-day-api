@@ -60,12 +60,8 @@ it('can import from Wikimedia', function () {
     $eventRepository = App::make(EventRepository::class);
 
     $eventRepository->import(
-        (new WikimediaEventSource(config('services.wikimedia.access_token')))
-            ->fake()
-            ->setLanguage(Language::English)
-            ->setMonth(1)
-            ->setDay(1)
+        (new WikimediaEventSource(config('services.wikimedia.access_token')))->fake()
     );
 
-    expect(Event::query()->count())->toBe(9);
+    expect(Event::all()->count())->toBe(10);
 });

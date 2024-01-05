@@ -2,13 +2,15 @@
 
 namespace App\Http\Resources;
 
+use App\Enum\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @property mixed $category
- * @property mixed $description
- * @property mixed $year
+ * @property Category $category
+ * @property string $description
+ * @property ?int $year
+ * @property int $happiness
  */
 class EventResource extends JsonResource
 {
@@ -24,6 +26,7 @@ class EventResource extends JsonResource
             'year' => $this->year,
             'category' => $this->category,
             'description' => $this->description,
+            'happiness' => $this->happiness,
         ];
     }
 }

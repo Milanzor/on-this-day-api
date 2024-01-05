@@ -28,7 +28,7 @@ class WikimediaEventSource extends AbstractEventSource implements EventSourceInt
         //
     }
 
-    public function fetch(): void
+    public function fetch(): self
     {
         $requestUrl = sprintf(
             "wikipedia/%s/onthisday/all/%s/%s",
@@ -55,6 +55,9 @@ class WikimediaEventSource extends AbstractEventSource implements EventSourceInt
         if ($response->successful()) {
             $this->events = $response->json();
         }
+
+        return $this;
+
     }
 
     public function client(): PendingRequest
@@ -104,7 +107,7 @@ class WikimediaEventSource extends AbstractEventSource implements EventSourceInt
         );
     }
 
-    public function fake(): self
+    public static function fake(...$constructor_parameters): self
     {
 
         Http::fake([
@@ -142,11 +145,11 @@ class WikimediaEventSource extends AbstractEventSource implements EventSourceInt
                 'holidays' => [
                     [
                         'year' => null,
-                        'text' => 'Christmas holiday',
+                        'text' => 'First Christmas day',
                     ],
                     [
                         'year' => null,
-                        'text' => 'Christmas holiday',
+                        'text' => 'Second Christmas day',
                     ],
                 ],
                 'selected' => [
@@ -162,11 +165,16 @@ class WikimediaEventSource extends AbstractEventSource implements EventSourceInt
             ]),
         ]);
 
-        $this->setDay(12)
+        return (new self(...$constructor_parameters))
+            ->setDay(12)
             ->setMonth(12)
             ->setLanguage(Language::English);
+    }
 
-        return $this;
+
+    public function getEvents(): array
+    {
+        return $this->events;
     }
 
 }
