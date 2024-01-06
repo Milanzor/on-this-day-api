@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Laravel Documentation</title>
+    <title>On This Day API</title>
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
@@ -267,7 +267,7 @@
      style="width: calc((100% - 1800px) / 2 + 300px); padding-left: calc((100% - 1800px) / 2); min-width: 300px; max-height: 100vh">
     <div class="sl-flex sl-items-center sl-mb-5 sl-ml-4">
                 <h4 class="sl-text-paragraph sl-leading-snug sl-font-prose sl-font-semibold sl-text-heading">
-            Laravel Documentation
+            On This Day API
         </h4>
     </div>
 
@@ -325,7 +325,7 @@
 
         </div>
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
-            Last updated: January 5, 2024
+            Last updated: January 6, 2024
         </div>
 
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
@@ -339,7 +339,7 @@
         <div class="sl-mb-10">
             <div class="sl-mb-4">
                 <h1 class="sl-text-5xl sl-leading-tight sl-font-prose sl-font-semibold sl-text-heading">
-                    Laravel Documentation
+                    On This Day API
                 </h1>
                                     <a title="Download Postman collection" class="sl-mx-1"
                        href="../docs/collection.json" target="_blank">
@@ -353,8 +353,9 @@
 
             <div class="sl-prose sl-markdown-viewer sl-my-4">
                 <h1 id="introduction">Introduction</h1>
+<p>On This Day API is a provides a list of events that happened on a specific day in history.</p>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>https://onthisday.zwart-hart.nl</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -385,7 +386,7 @@ You can switch the language used with the tabs at the top right (or from the nav
         </div>
 
         <div class="sl-relative">
-            <div title="http://localhost/api/v1/events/that-happened-on/{month}/{day}"
+            <div title="https://onthisday.zwart-hart.nl/api/v1/events/that-happened-on/{month}/{day}"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -395,7 +396,7 @@ You can switch the language used with the tabs at the top right (or from the nav
                         </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
-                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">http://localhost</div>
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">https://onthisday.zwart-hart.nl</div>
                         <div class="sl-flex-1 sl-font-semibold">/api/v1/events/that-happened-on/{month}/{day}</div>
                     </div>
 
@@ -531,7 +532,7 @@ This endpoint fetches events that happened on a specific day.</p>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        25
+                        8
                     </div>
                 </div>
             </div>
@@ -555,7 +556,7 @@ This endpoint fetches events that happened on a specific day.</p>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        births
+                        deaths
                     </div>
                 </div>
             </div>
@@ -579,7 +580,7 @@ This endpoint fetches events that happened on a specific day.</p>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        sv
+                        pt
                     </div>
                 </div>
             </div>
@@ -718,9 +719,9 @@ This endpoint fetches events that happened on a specific day.</p>
                                      id="json-body-GETapi-v1-events-that-happened-on--month---day-"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "limit": 25,
-    "category": "births",
-    "language": "sv"
+    "limit": 8,
+    "category": "deaths",
+    "language": "pt"
 }</div>
                             </div>
                                             </div>
@@ -814,13 +815,13 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/events/that-happened-on/12/31" \
+    --get "https://onthisday.zwart-hart.nl/api/v1/events/that-happened-on/12/31" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"limit\": 25,
-    \"category\": \"births\",
-    \"language\": \"sv\"
+    \"limit\": 8,
+    \"category\": \"deaths\",
+    \"language\": \"pt\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -830,7 +831,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/events/that-happened-on/12/31"
+    "https://onthisday.zwart-hart.nl/api/v1/events/that-happened-on/12/31"
 );
 
 const headers = {
@@ -839,9 +840,9 @@ const headers = {
 };
 
 let body = {
-    "limit": 25,
-    "category": "births",
-    "language": "sv"
+    "limit": 8,
+    "category": "deaths",
+    "language": "pt"
 };
 
 fetch(url, {
@@ -856,7 +857,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/v1/events/that-happened-on/12/31';
+$url = 'https://onthisday.zwart-hart.nl/api/v1/events/that-happened-on/12/31';
 $response = $client-&gt;get(
     $url,
     [
@@ -865,9 +866,9 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'limit' =&gt; 25,
-            'category' =&gt; 'births',
-            'language' =&gt; 'sv',
+            'limit' =&gt; 8,
+            'category' =&gt; 'deaths',
+            'language' =&gt; 'pt',
         ],
     ]
 );
@@ -882,11 +883,11 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/v1/events/that-happened-on/12/31'
+url = 'https://onthisday.zwart-hart.nl/api/v1/events/that-happened-on/12/31'
 payload = {
-    "limit": 25,
-    "category": "births",
-    "language": "sv"
+    "limit": 8,
+    "category": "deaths",
+    "language": "pt"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -963,129 +964,44 @@ response.json()</code></pre>                                        </div>
                                                        class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
     &quot;data&quot;: [
         {
-            &quot;year&quot;: 2000,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Logan Sargeant, amerikansk racerf&ouml;rare.&quot;
+            &quot;year&quot;: 2023,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Melissa Hoskins, ciclista australiana (n. 1991).&quot;
         },
         {
-            &quot;year&quot;: 1992,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Tylor Spink, kanadensisk ishockeyspelare.&quot;
+            &quot;year&quot;: 2022,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Papa Bento XVI (n. 1927)&quot;
         },
         {
-            &quot;year&quot;: 1992,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Tyson Spink, kanadensisk ishockeyspelare.&quot;
+            &quot;year&quot;: 2022,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Alberto Sampaio da N&oacute;voa, ministro portugu&ecirc;s (n. 1927).&quot;
         },
         {
-            &quot;year&quot;: 1991,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Dennis Everberg, svensk ishockeyspelare.&quot;
+            &quot;year&quot;: 2021,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Betty White, atriz e comediante estadunidense (n. 1922).&quot;
         },
         {
-            &quot;year&quot;: 1982,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Kikkan Randall, amerikansk l&auml;ngd&aring;kare.&quot;
+            &quot;year&quot;: 2021,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Juan Figer, empres&aacute;rio uruguaio (n. 1934)&quot;
         },
         {
-            &quot;year&quot;: 1979,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Bob Bryar, amerikansk trummis i bandet My Chemical Romance.&quot;
+            &quot;year&quot;: 2020,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Dick Thornburgh, advogado estadunidense (n. 1932).&quot;
         },
         {
-            &quot;year&quot;: 1977,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Donald Trump, Jr., amerikansk aff&auml;rsman.&quot;
+            &quot;year&quot;: 2019,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Juliano Cezar, cantor brasileiro (n. 1961).&quot;
         },
         {
-            &quot;year&quot;: 1977,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Psy, sydkoreansk s&aring;ngare, rappare och l&aring;tskrivare.&quot;
-        },
-        {
-            &quot;year&quot;: 1974,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Mario Aerts, belgisk t&auml;vlingscyklist.&quot;
-        },
-        {
-            &quot;year&quot;: 1974,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Tony Kanaan, brasiliansk racerf&ouml;rare.&quot;
-        },
-        {
-            &quot;year&quot;: 1971,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Heath Shuler, amerikansk demokratisk politiker, kongressledamot 2007&ndash;2013.&quot;
-        },
-        {
-            &quot;year&quot;: 1966,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Lars Yngve Johansson, svensk manusf&ouml;rfattare, komposit&ouml;r och musiker.&quot;
-        },
-        {
-            &quot;year&quot;: 1962,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Jeff Flake, amerikansk republikansk politiker, senator (Arizona) 2013&ndash;2019.&quot;
-        },
-        {
-            &quot;year&quot;: 1959,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Val Kilmer, amerikansk sk&aring;despelare.&quot;
-        },
-        {
-            &quot;year&quot;: 1958,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Peter Hultqvist, svensk socialdemokratisk f&ouml;rsvarsminister.&quot;
-        },
-        {
-            &quot;year&quot;: 1958,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Bebe Neuwirth, amerikansk sk&aring;despelare och dansares.&quot;
-        },
-        {
-            &quot;year&quot;: 1958,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Gunilla Persson, svensk-amerikansk fotomodell.&quot;
-        },
-        {
-            &quot;year&quot;: 1954,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Alex Salmond, brittisk politiker, ledare f&ouml;r Scottish National Party 1990&ndash;2000 och 2004&ndash;2014.&quot;
-        },
-        {
-            &quot;year&quot;: 1953,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Jane Badler, amerikansk sk&aring;despelare.&quot;
-        },
-        {
-            &quot;year&quot;: 1953,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;James Remar, amerikansk sk&aring;despelare.&quot;
-        },
-        {
-            &quot;year&quot;: 1951,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;B&aacute;rbara Carrera, nicaraguansk sk&aring;despelare.&quot;
-        },
-        {
-            &quot;year&quot;: 1951,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Tom Hamilton, amerikansk musiker, basist i Aerosmith.&quot;
-        },
-        {
-            &quot;year&quot;: 1949,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Tom Kite, amerikansk golfspelare.&quot;
-        },
-        {
-            &quot;year&quot;: 1948,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Donna Summer, amerikansk s&aring;ngare.&quot;
-        },
-        {
-            &quot;year&quot;: 1947,
-            &quot;category&quot;: &quot;births&quot;,
-            &quot;description&quot;: &quot;Burton Cummings, kanadensisk rocks&aring;ngare.&quot;
+            &quot;year&quot;: 2019,
+            &quot;category&quot;: &quot;deaths&quot;,
+            &quot;description&quot;: &quot;Djimrangar Dadnadji, pol&iacute;tico chadiano (n. 1954).&quot;
         }
     ]
 }</code></pre>

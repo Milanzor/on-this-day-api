@@ -48,7 +48,7 @@ endpoints:
         name: limit
         description: 'Must be at least 1. Must not be greater than 100.'
         required: false
-        example: 25
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -57,7 +57,7 @@ endpoints:
         name: category
         description: ''
         required: false
-        example: births
+        example: deaths
         type: string
         enumValues:
           - births
@@ -70,7 +70,7 @@ endpoints:
         name: language
         description: ''
         required: false
-        example: sv
+        example: pt
         type: string
         enumValues:
           - en
@@ -85,14 +85,14 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      limit: 25
-      category: births
-      language: sv
+      limit: 8
+      category: deaths
+      language: pt
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[{"year":2000,"category":"births","description":"Logan Sargeant, amerikansk racerf\u00f6rare."},{"year":1992,"category":"births","description":"Tylor Spink, kanadensisk ishockeyspelare."},{"year":1992,"category":"births","description":"Tyson Spink, kanadensisk ishockeyspelare."},{"year":1991,"category":"births","description":"Dennis Everberg, svensk ishockeyspelare."},{"year":1982,"category":"births","description":"Kikkan Randall, amerikansk l\u00e4ngd\u00e5kare."},{"year":1979,"category":"births","description":"Bob Bryar, amerikansk trummis i bandet My Chemical Romance."},{"year":1977,"category":"births","description":"Donald Trump, Jr., amerikansk aff\u00e4rsman."},{"year":1977,"category":"births","description":"Psy, sydkoreansk s\u00e5ngare, rappare och l\u00e5tskrivare."},{"year":1974,"category":"births","description":"Mario Aerts, belgisk t\u00e4vlingscyklist."},{"year":1974,"category":"births","description":"Tony Kanaan, brasiliansk racerf\u00f6rare."},{"year":1971,"category":"births","description":"Heath Shuler, amerikansk demokratisk politiker, kongressledamot 2007\u20132013."},{"year":1966,"category":"births","description":"Lars Yngve Johansson, svensk manusf\u00f6rfattare, komposit\u00f6r och musiker."},{"year":1962,"category":"births","description":"Jeff Flake, amerikansk republikansk politiker, senator (Arizona) 2013\u20132019."},{"year":1959,"category":"births","description":"Val Kilmer, amerikansk sk\u00e5despelare."},{"year":1958,"category":"births","description":"Peter Hultqvist, svensk socialdemokratisk f\u00f6rsvarsminister."},{"year":1958,"category":"births","description":"Bebe Neuwirth, amerikansk sk\u00e5despelare och dansares."},{"year":1958,"category":"births","description":"Gunilla Persson, svensk-amerikansk fotomodell."},{"year":1954,"category":"births","description":"Alex Salmond, brittisk politiker, ledare f\u00f6r Scottish National Party 1990\u20132000 och 2004\u20132014."},{"year":1953,"category":"births","description":"Jane Badler, amerikansk sk\u00e5despelare."},{"year":1953,"category":"births","description":"James Remar, amerikansk sk\u00e5despelare."},{"year":1951,"category":"births","description":"B\u00e1rbara Carrera, nicaraguansk sk\u00e5despelare."},{"year":1951,"category":"births","description":"Tom Hamilton, amerikansk musiker, basist i Aerosmith."},{"year":1949,"category":"births","description":"Tom Kite, amerikansk golfspelare."},{"year":1948,"category":"births","description":"Donna Summer, amerikansk s\u00e5ngare."},{"year":1947,"category":"births","description":"Burton Cummings, kanadensisk rocks\u00e5ngare."}]}'
+        content: '{"data":[{"year":2023,"category":"deaths","description":"Melissa Hoskins, ciclista australiana (n. 1991)."},{"year":2022,"category":"deaths","description":"Papa Bento XVI (n. 1927)"},{"year":2022,"category":"deaths","description":"Alberto Sampaio da N\u00f3voa, ministro portugu\u00eas (n. 1927)."},{"year":2021,"category":"deaths","description":"Betty White, atriz e comediante estadunidense (n. 1922)."},{"year":2021,"category":"deaths","description":"Juan Figer, empres\u00e1rio uruguaio (n. 1934)"},{"year":2020,"category":"deaths","description":"Dick Thornburgh, advogado estadunidense (n. 1932)."},{"year":2019,"category":"deaths","description":"Juliano Cezar, cantor brasileiro (n. 1961)."},{"year":2019,"category":"deaths","description":"Djimrangar Dadnadji, pol\u00edtico chadiano (n. 1954)."}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
