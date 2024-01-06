@@ -44,7 +44,6 @@ class WikimediaEventSource extends AbstractEventSource implements EventSourceInt
             $response = $client->get($requestUrl);
 
             if (!$response->successful()) {
-
                 throw new RuntimeException('Wikimedia API returned a non-200 response');
             }
 
@@ -52,9 +51,12 @@ class WikimediaEventSource extends AbstractEventSource implements EventSourceInt
 
         }, 200);
 
-        if ($response->successful()) {
-            $this->events = $response->json();
+        if (!$response->successful()) {
+            throw new RuntimeException('Wikimedia API returned a non-200 response');
         }
+
+        $this->events = $response->json();
+
 
         return $this;
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\EventDescriptionCast;
 use App\Enum\Category;
 use App\Enum\Language;
 use App\Enum\Source;
@@ -16,7 +17,7 @@ class Event extends Model
         'day' => 'integer',
         'month' => 'integer',
         'year' => 'integer',
-        'description' => 'string',
+        'description' => EventDescriptionCast::class,
         'hash' => 'string',
         'url' => 'string',
         'category' => Category::class,
